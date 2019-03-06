@@ -7,7 +7,7 @@
 - load (add to the group) table of phrases from the file
 - phrases file format: csv (?)
 - save the phrases in sqlite
-- phrases model: int idstrings: phrase, definition, ?category, ?group, ?priority, bool learned/not learned(default)
+- phrases model: int id, strings: phrase, definition, ?category, ?group, ?priority, bool learned/not learned(default)
 - edit (btn next to), delete (btn next to, confirm), add single phrase (choose category, group, priority from dropdown of existing - enum)
 - main view: phrase groups icons/btns (choose one), create new group btn, delete group btn, load from csv btn, add new phrase btn
 	- group entered view: practice learned, learn phrases
@@ -18,4 +18,3 @@
 	- delete group view: dropdown group
 	- load from csv view: dropdown group, pick up file btn. what if table format is wrong????????
 	- add new phrase: dropdown group, category (from group), priority from dropdown (from all possible)
-	

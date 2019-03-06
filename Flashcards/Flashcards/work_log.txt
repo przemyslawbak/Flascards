@@ -1,1 +1,2 @@
-06.03 - app specs, 
+06.03 - app specs, Phrase model, created solution, created MVVM folders, created unit test project
+07.03 -
