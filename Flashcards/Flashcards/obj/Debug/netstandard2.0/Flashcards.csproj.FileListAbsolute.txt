@@ -1,0 +1,12 @@
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\bin\Debug\netstandard2.0\Flashcards.deps.json
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\bin\Debug\netstandard2.0\Flashcards.dll
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\bin\Debug\netstandard2.0\Flashcards.pdb
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\Flashcards.csprojAssemblyReference.cache
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\Flashcards.csproj.CoreCompileInputs.cache
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\Flashcards.AssemblyInfoInputs.cache
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\Flashcards.AssemblyInfo.cs
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\Flashcards.dll
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\Flashcards.pdb
