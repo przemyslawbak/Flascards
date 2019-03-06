@@ -1,0 +1,21 @@
+- mvvm
+- android
+- sqlite
+- nunit
+- tdd
+- create new phrases group (ex. spanish shopping phrases)
+- load (add to the group) table of phrases from the file
+- phrases file format: csv (?)
+- save the phrases in sqlite
+- phrases model: int idstrings: phrase, definition, ?category, ?group, ?priority, bool learned/not learned(default)
+- edit (btn next to), delete (btn next to, confirm), add single phrase (choose category, group, priority from dropdown of existing - enum)
+- main view: phrase groups icons/btns (choose one), create new group btn, delete group btn, load from csv btn, add new phrase btn
+	- group entered view: practice learned, learn phrases
+		- practice learned view: display random phrase, one by one, display 'show' btn, display 'next' btn
+		- learn new one view: display list of all phrases, possible to choose one, learned marked, possible to filter, 'back to group' btn
+			- display phrase view: 'add to learned' btn, 'back to list' btn, 'prev/next' btns
+	- create new group view: enter group name
+	- delete group view: dropdown group
+	- load from csv view: dropdown group, pick up file btn. what if table format is wrong????????
+	- add new phrase: dropdown group, category (from group), priority from dropdown (from all possible)
+	
