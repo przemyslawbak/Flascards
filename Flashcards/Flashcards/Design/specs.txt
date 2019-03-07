@@ -9,8 +9,8 @@
 - save the phrases in sqlite
 - phrases model: int id, strings: phrase, definition, ?category, ?group, ?priority, bool learned/not learned(default)
 - edit (btn next to), delete (btn next to, confirm), add single phrase (choose category, group, priority from dropdown of existing - enum)
-- main view: phrase groups icons/btns (choose one), create new group btn, delete group btn, load from csv btn, add new phrase btn
-	- group entered view: practice learned, learn phrases
+- main view: phrase groups icons/btns (choose one), create new group btn, load from csv btn, add new phrase btn
+	- group entered view: practice learned, learn phrases, delete group btn,
 		- practice learned view: display random phrase, one by one, display 'show' btn, display 'next' btn
 		- learn new one view: display list of all phrases, possible to choose one, learned marked, possible to filter, 'back to group' btn
 			- display phrase view: 'add to learned' btn, 'back to list' btn, 'prev/next' btns
