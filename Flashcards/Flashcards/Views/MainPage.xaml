@@ -3,12 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Flashcards"
              x:Class="Flashcards.MainPage">
+    <Grid>
+        <!--grids-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!--backgrounds-->
+        <BoxView Color="#535353" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
+        <BoxView Color="White" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="5,5,5,0"/>
+        <!--header-->
+        <Label Text="Flashcards" FontSize="25"
+               Grid.Column="0"
+               Grid.Row="0"
+               Grid.ColumnSpan="3"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to the app"
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+        </Label>
+        <!--groups-->
+        <!--TO BE UPDATED-->
 
+        <!--buttons bottom-->
+        <Button Grid.Row="2" Grid.Column="0"
+                 Text="New group"
+                HorizontalOptions="Center">
+        </Button>
+        <Button Grid.Row="2" Grid.Column="1"
+                 Text="Load from file"
+                HorizontalOptions="Center">
+        </Button>
+        <Button Grid.Row="2" Grid.Column="2"
+                 Text="Add phrase"
+                HorizontalOptions="Center">
+        </Button>
+
+    </Grid>
 </ContentPage>
