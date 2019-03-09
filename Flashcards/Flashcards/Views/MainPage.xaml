@@ -8,7 +8,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition/>
-            <RowDefinition Height="90"/>
+            <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -17,7 +17,7 @@
         </Grid.ColumnDefinitions>
         <!--backgrounds-->
         <BoxView Color="#535353" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
-        <BoxView Color="White" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="5,5,5,0"/>
+        <BoxView Color="White" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="5,5,5,-5"/>
         <!--header-->
         <Label Text="Flashcards" FontSize="25"
                Grid.Column="0"
