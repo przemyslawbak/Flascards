@@ -1,2 +1,3 @@
 06.03 - app specs, Phrase model, created solution, created MVVM folders, created unit test project
-07.03 -
+07.03 - MainPageView design
+09.03 - MainPageView design update, LearnNew,GroupPage,PracticeLearned views design, MainPageViewCoded
