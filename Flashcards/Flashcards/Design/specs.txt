@@ -15,6 +15,6 @@
 		- learn new one view: display list of all phrases, possible to choose one, learned marked, possible to filter, 'back to group' btn
 			- display phrase view: 'add to learned' btn, 'back to list' btn, 'prev/next' btns
 	- create new group view: enter group name
-	- delete group view: dropdown group
 	- load from csv view: dropdown group, pick up file btn. what if table format is wrong????????
 	- add new phrase: dropdown group, category (from group), priority from dropdown (from all possible)
+	- edit/add phrase same view
