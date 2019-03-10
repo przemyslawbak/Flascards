@@ -1,4 +1,4 @@
 06.03 - app specs, Phrase model, created solution, created MVVM folders, created unit test project
 07.03 - MainPageView design
 09.03 - MainPageView design update, LearnNew,GroupPage,PracticeLearned views design, MainPageViewCoded
-10.03 - Installed sqlite-net-pcl pack, updated xamarin.forms
+10.03 - Installed sqlite-net-pcl pack, updated xamarin.forms, troubles with MainPage initialization after installing SQLite and DB repo...

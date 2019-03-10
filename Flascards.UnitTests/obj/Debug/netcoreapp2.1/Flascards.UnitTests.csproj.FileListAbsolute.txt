@@ -1,7 +1,6 @@
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flascards.UnitTests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flascards.UnitTests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flascards.UnitTests\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
-C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flascards.UnitTests\bin\Debug\netcoreapp2.1\Mono.Cecil.dll
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flascards.UnitTests\bin\Debug\netcoreapp2.1\Flascards.UnitTests.deps.json
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flascards.UnitTests\bin\Debug\netcoreapp2.1\Flascards.UnitTests.runtimeconfig.json
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flascards.UnitTests\bin\Debug\netcoreapp2.1\Flascards.UnitTests.runtimeconfig.dev.json
