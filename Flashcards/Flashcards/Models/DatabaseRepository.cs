@@ -29,7 +29,7 @@ namespace Flashcards.Models
             lock (locker)
             {
                 List<string> groups = new List<string>();
-                var context = SeedDb.CreatePhrases(); //seeding list CHANGE!
+                var context = SeedDb.CreatePhrases(); //seeding list, CHANGE!
                 foreach(Phrase phrase in context)
                 {
                     groups.Add(phrase.Group);
