@@ -25,7 +25,6 @@
                Grid.ColumnSpan="3"
                HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center">
-
         </Label>
         <!--groups-->
         <!--TO BE UPDATED-->
