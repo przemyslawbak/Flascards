@@ -18,6 +18,14 @@ namespace Flashcards.Models
             phrase.Name = "testName";
             phrase.Priority = "testPriority";
             phrases.Add(phrase);
+            phrase.Category = "testCategory";
+            phrase.Definition = "testDefinition";
+            phrase.Group = "group2";
+            phrase.Id = 2;
+            phrase.Learned = false;
+            phrase.Name = "testName";
+            phrase.Priority = "testPriority";
+            phrases.Add(phrase);
             return phrases;
         }
     }
