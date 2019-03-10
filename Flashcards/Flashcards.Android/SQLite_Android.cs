@@ -22,7 +22,7 @@ namespace Flashcards.Droid
         public SQLite_Android() { }
         public SQLite.SQLiteConnection GetConnection()
         {
-            var DBFileName = "backend.db3";
+            var DBFileName = "flashcards.db3";
             string DocumentPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             var path = Path.Combine(DocumentPath, DBFileName);
             var conn = new SQLite.SQLiteConnection(path);
