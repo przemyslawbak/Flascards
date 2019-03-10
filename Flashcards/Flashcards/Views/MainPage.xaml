@@ -21,7 +21,7 @@
             <!--groups-->
             <!--TO BE UPDATED-->
             <ListView
-            Grid.Row="1"
+            Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="3"
             ItemsSource="{Binding Groups}"
@@ -39,15 +39,15 @@
                 </ListView.ItemTemplate>
             </ListView>
             <!--buttons bottom-->
-            <Button Grid.Row="2" Grid.Column="0"
+            <Button Grid.Row="1" Grid.Column="0"
                  Text="New group"
                 HorizontalOptions="Center">
             </Button>
-            <Button Grid.Row="2" Grid.Column="1"
+            <Button Grid.Row="1" Grid.Column="1"
                  Text="Load from file"
                 HorizontalOptions="Center">
             </Button>
-            <Button Grid.Row="2" Grid.Column="2"
+            <Button Grid.Row="1" Grid.Column="2"
                  Text="Add phrase"
                 HorizontalOptions="Center">
             </Button>
