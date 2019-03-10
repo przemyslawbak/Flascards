@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Flashcards.Models;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,6 +13,19 @@ namespace Flashcards
             InitializeComponent();
 
             MainPage = new MainPage();
+        }
+
+        static DatabaseRepository database;
+        public static DatabaseRepository Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new DatabaseRepository();
+                }
+                return database;
+            }
         }
 
         protected override void OnStart()
