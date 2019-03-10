@@ -13,17 +13,16 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <!--backgrounds-->
-            <BoxView Color="#535353" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
-            <BoxView Color="White" Grid.Column="0" Grid.Row="0" Grid.RowSpan="1" Grid.ColumnSpan="3" Margin="5,5,5,-5"/>
+            <BoxView Color="#535353" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <BoxView Color="White" Grid.Column="0" Grid.Row="0" Grid.RowSpan="1" Grid.ColumnSpan="2" Margin="5,5,5,-5"/>
             <!--groups-->
             <!--TO BE UPDATED-->
             <ListView
             Grid.Row="0"
             Grid.Column="0"
-            Grid.ColumnSpan="3"
+            Grid.ColumnSpan="2"
             ItemsSource="{Binding Groups}"
             x:Name="PhraseList">
                 <ListView.ItemTemplate>
@@ -40,16 +39,14 @@
             </ListView>
             <!--buttons bottom-->
             <Button Grid.Row="1" Grid.Column="0"
-                 Text="New group"
-                HorizontalOptions="Center">
+                 Text="Load from file"
+                HorizontalOptions="Center"
+                    Margin="5,0,0,0">
             </Button>
             <Button Grid.Row="1" Grid.Column="1"
-                 Text="Load from file"
-                HorizontalOptions="Center">
-            </Button>
-            <Button Grid.Row="1" Grid.Column="2"
-                 Text="Add phrase"
-                HorizontalOptions="Center">
+                 Text="Add single phrase"
+                HorizontalOptions="Center"
+                    Margin="0,0,5,0">
             </Button>
         </Grid>
     </ContentPage.Content>
