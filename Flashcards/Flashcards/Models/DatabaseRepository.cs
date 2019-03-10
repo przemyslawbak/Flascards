@@ -24,17 +24,32 @@ namespace Flashcards.Models
                         select p).ToList();
             }
         }
-        public static List<string> GetGroups()
+        public List<string> GetGroups()
         {
             lock (locker)
             {
                 List<string> groups = new List<string>();
-                var context = SeedDb.CreatePhrases(); //seeding list, CHANGE!
+                var context = database.Table<Phrase>();
                 foreach(Phrase phrase in context)
                 {
                     groups.Add(phrase.Group);
                 }
-                return groups;
+                return groups.ToList();
+            }
+        }
+        public int SavePhrase(Phrase phrase)
+        {
+            lock (locker)
+            {
+                if (phrase.Id != 0)
+                {
+                    database.Update(phrase);
+                    return phrase.Id;
+                }
+                else
+                {
+                    return database.Insert(phrase);
+                }
             }
         }
     }
