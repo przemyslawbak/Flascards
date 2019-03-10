@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Flashcards.ViewModels
 {
-    class MainPageViewModel
+    public class MainPageViewModel
     {
         public List<string> Groups { get; set; }
         public MainPageViewModel()
