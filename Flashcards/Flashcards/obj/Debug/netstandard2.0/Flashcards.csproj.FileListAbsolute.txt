@@ -6,7 +6,6 @@ C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\Flashcards.csproj.CoreCompileInputs.cache
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\Flashcards.AssemblyInfoInputs.cache
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\Flashcards.AssemblyInfo.cs
-C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\Flashcards.dll
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\Flashcards.pdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
