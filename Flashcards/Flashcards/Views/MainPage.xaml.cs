@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Flashcards.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,11 @@ namespace Flashcards
 {
     public partial class MainPage : ContentPage
     {
+        MainPageViewModel vm;
         public MainPage()
         {
+            vm = new MainPageViewModel();
+            BindingContext = vm;
             InitializeComponent();
         }
     }

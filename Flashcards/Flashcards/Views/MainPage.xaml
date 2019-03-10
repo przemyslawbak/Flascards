@@ -29,7 +29,24 @@
         </Label>
         <!--groups-->
         <!--TO BE UPDATED-->
-
+        <ListView
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            ItemsSource="{Binding Groups}"
+            x:Name="PhraseList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout>
+                                <Label Text="{Binding Name}"/>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         <!--buttons bottom-->
         <Button Grid.Row="2" Grid.Column="0"
                  Text="New group"
