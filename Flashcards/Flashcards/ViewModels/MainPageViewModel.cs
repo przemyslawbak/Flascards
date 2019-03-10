@@ -10,8 +10,9 @@ namespace Flashcards.ViewModels
         public List<string> Groups { get; set; }
         public MainPageViewModel()
         {
+            DatabaseRepository repo = new DatabaseRepository();
             Groups = new List<string>();
-            Groups = DatabaseRepository.GetGroups();
+            Groups = repo.GetGroups();
         }
     }
 }
