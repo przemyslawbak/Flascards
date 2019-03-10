@@ -2,4 +2,6 @@
 07.03 - MainPageView design
 09.03 - MainPageView design update, LearnNew,GroupPage,PracticeLearned views design, MainPageViewCoded
 10.03 - Installed sqlite-net-pcl pack, updated xamarin.forms, troubles with MainPage initialization after installing SQLite and DB repo...
-problem solved with adding SQLite_Android to Flashcards.Android, and updating packages in the same project.
+problem solved with adding SQLite_Android to Flashcards.Android, and updating packages in the same project, updates on the MainPage,
+seeded SQLite DB, created MainPage VM, started TDD_MVVM PluralSight tutorial to get it better...
+11.03 -
