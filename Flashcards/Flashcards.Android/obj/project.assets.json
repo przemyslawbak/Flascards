@@ -403,7 +403,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xamarin.Forms": "3.4.0.1008975",
+          "Xamarin.Forms": "3.6.0.220655",
           "sqlite-net-pcl": "1.5.231"
         },
         "compile": {
@@ -1031,5 +1031,17 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 3.6.0.220655 to 3.4.0.1008975. Reference the package directly from the project to select a different version. \r\n Flashcards.Android -> Flashcards -> Xamarin.Forms (>= 3.6.0.220655) \r\n Flashcards.Android -> Xamarin.Forms (>= 3.4.0.1008975)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    }
+  ]
 }
