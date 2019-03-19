@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Flashcards.DataProvider;
+using Flashcards.DataAccess;
 using Flashcards.Startup;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,22 +11,9 @@ namespace Flashcards
     {
         public App()
         {
-            var bootStrapper = new BootStrapper(); //zmienna dla interfejsów Autofac
-            var container = bootStrapper.BootStrap(); //zmienna dla odpalenia kontenera Autofac
+            var bootStrapper = new BootStrapper(); //Autofac class
+            var container = bootStrapper.BootStrap(); //Autofac class
             MainPage = new NavigationPage(container.Resolve<MainPage>());
-        }
-
-        static DatabaseRepository database;
-        public static DatabaseRepository Database
-        {
-            get
-            {
-                if (database == null)
-                {
-                    database = new DatabaseRepository();
-                }
-                return database;
-            }
         }
 
         protected override void OnStart()
