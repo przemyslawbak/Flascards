@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 
-namespace Flashcards.DataProvider
+namespace Flashcards.DataAccess
 {
     public class DatabaseRepository : IDatabaseRepository
     {
