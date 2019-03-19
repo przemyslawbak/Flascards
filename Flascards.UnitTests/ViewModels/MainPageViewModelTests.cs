@@ -4,6 +4,7 @@ using Flashcards.ViewModels;
 using Moq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Xunit;
 
@@ -24,8 +25,21 @@ namespace Flascards.UnitTests.ViewModels
           "Group #2",
           "Group #3"
              });
-            _viewModel = new MainPageViewModel(mainDataProviderMock.Object);
+            _viewModel = new MainPageViewModel(mainDataProviderMock.Object, CreatePhraseEditViewModel);
         }
+
+        private IPhraseEditViewModel CreatePhraseEditViewModel() //method for creating phrase edit VM
+        {
+            var phraseEditViewModelMock = new Mock<IPhraseEditViewModel>();
+            phraseEditViewModelMock.Setup(vm => vm.LoadPhrase(It.IsAny<int>()))
+              .Callback<int?>(phraseId =>
+              {
+                  phraseEditViewModelMock.Setup(vm => vm.Phrase)
+            .Returns(new Phrase());
+              });
+            return phraseEditViewModelMock.Object;
+        }
+
         [Fact]
         public void ShouldLoadGroupsOnlyOnce()
         {
@@ -44,11 +58,12 @@ namespace Flascards.UnitTests.ViewModels
             Assert.Equal("Group #1", friend);
         }
         [Fact]
-        public void ShouldAddPhraseEditViewModelAndLoadItWithIdNullAndSelectIt()
+        public void ShouldAddNewPhraseAndGivePhraseEditPropertyTrue()
         {
+            _viewModel.PhraseEdit = false;
             _viewModel.AddPhraseCommand.Execute(null);
             Assert.True(_viewModel.PhraseEdit);
-            //_phraseEditViewModelMocks.First().Verify(vm => vm.Load(null), Times.Once);
+            _phraseEditViewModelMocks.First().Verify(vm => vm.LoadPhrase(null), Times.Once);
         }
     }
 }
