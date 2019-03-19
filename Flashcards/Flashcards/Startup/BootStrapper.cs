@@ -21,6 +21,8 @@ namespace Flashcards.Startup
                 .AsSelf();
             builder.RegisterType<MainDataProvider>()
                 .As<IMainDataProvider>();
+            builder.RegisterType<PhraseDataProvider>()
+                .As<IPhraseDataProvider>();
             return builder.Build();
         }
     }
