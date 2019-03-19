@@ -1,4 +1,6 @@
-﻿using Flashcards.DataProvider;
+﻿using Autofac;
+using Flashcards.DataProvider;
+using Flashcards.Startup;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,7 +11,9 @@ namespace Flashcards
     {
         public App()
         {
-            MainPage = new NavigationPage(new MainPage());
+            var bootStrapper = new BootStrapper(); //zmienna dla interfejsów Autofac
+            var container = bootStrapper.BootStrap(); //zmienna dla odpalenia kontenera Autofac
+            MainPage = new NavigationPage(container.Resolve<MainPage>());
         }
 
         static DatabaseRepository database;
