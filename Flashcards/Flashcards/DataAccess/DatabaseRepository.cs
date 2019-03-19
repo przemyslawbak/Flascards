@@ -17,6 +17,10 @@ namespace Flashcards.DataAccess
             database = DependencyService.Get<ISQLite>().GetConnection();
             database.CreateTable<Phrase>();
         }
+        public void Dispose()
+        {
+            // do something
+        }
         public IEnumerable<Phrase> GetPhrases()
         {
             lock (locker)

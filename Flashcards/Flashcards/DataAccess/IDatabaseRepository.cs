@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Flashcards.DataAccess
 {
-    public interface IDatabaseRepository
+    public interface IDatabaseRepository : IDisposable
     {
         IEnumerable<Phrase> GetPhrases();
         List<string> GetGroups();
