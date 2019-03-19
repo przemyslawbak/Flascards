@@ -1,13 +1,14 @@
-﻿using SQLite;
+﻿using Flashcards.Models;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 
-namespace Flashcards.Models
+namespace Flashcards.DataProvider
 {
-    public class DatabaseRepository
+    public class DatabaseRepository : IDatabaseRepository
     {
         SQLiteConnection database;
         static object locker = new object();
