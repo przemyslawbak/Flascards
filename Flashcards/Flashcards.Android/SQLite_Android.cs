@@ -10,8 +10,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Flashcards.DataAccess;
 using Flashcards.Droid;
-using Flashcards.Models;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(SQLite_Android))]
