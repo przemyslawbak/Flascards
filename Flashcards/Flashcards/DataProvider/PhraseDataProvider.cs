@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Flashcards.DataProvider
 {
-    public class PhraseDataProvider
+    public class PhraseDataProvider : IPhraseDataProvider
     {
         private readonly Func<IDatabaseRepository> _dataServiceCreator;
 
@@ -14,7 +14,6 @@ namespace Flashcards.DataProvider
         {
             _dataServiceCreator = dataServiceCreator;
         }
-        //implementacja interfejsu
         public Phrase GetPhraseById(int id)
         {
             using (var dataService = _dataServiceCreator())
