@@ -57,5 +57,13 @@ namespace Flashcards.DataAccess
                 }
             }
         }
+        public Phrase GetPhraseById(int phraseId)
+        {
+            lock (locker)
+            {
+                var context = database.Table<Phrase>();
+                return context.Single(f => f.Id == phraseId);
+            }
+        }
     }
 }

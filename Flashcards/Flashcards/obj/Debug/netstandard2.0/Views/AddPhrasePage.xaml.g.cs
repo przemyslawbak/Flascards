@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Flashcards.Views.AddPhrasePage.xaml", "Views/AddPhrasePage.xaml", typeof(global::Flashcards.Views.AddPhrasePage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("Flashcards.Views.AddPhrasePage.xaml", "Views/AddPhrasePage.xaml", typeof(global::Flashcards.MainPage))]
 
-namespace Flashcards.Views {
+namespace Flashcards {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\AddPhrasePage.xaml")]
-    public partial class AddPhrasePage : global::Xamarin.Forms.ContentView {
+    public partial class MainPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(AddPhrasePage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MainPage));
         }
     }
 }

@@ -12,9 +12,10 @@ namespace Flascards.UnitTests.ViewModels
     public class MainPageViewModelTests
     {
         private MainPageViewModel _viewModel;
-
+        private List<Mock<IPhraseEditViewModel>> _phraseEditViewModelMocks;
         public MainPageViewModelTests()
         {
+            _phraseEditViewModelMocks = new List<Mock<IPhraseEditViewModel>>();
             var mainDataProviderMock = new Mock<IMainDataProvider>();
             mainDataProviderMock.Setup(dp => dp.GetGroups())
               .Returns(new List<string>
@@ -43,11 +44,11 @@ namespace Flascards.UnitTests.ViewModels
             Assert.Equal("Group #1", friend);
         }
         [Fact]
-        public void ShouldOpenNewPageOnNewPhraseExecute()
+        public void ShouldAddPhraseEditViewModelAndLoadItWithIdNullAndSelectIt()
         {
-            Phrase phrase = new Phrase();
-            _viewModel.NewPhraseCommand.Execute(phrase);
-            Assert.True(_viewModel.NewPhraseEdit);
+            _viewModel.AddPhraseCommand.Execute(null);
+            Assert.True(_viewModel.PhraseEdit);
+            //_phraseEditViewModelMocks.First().Verify(vm => vm.Load(null), Times.Once);
         }
     }
 }

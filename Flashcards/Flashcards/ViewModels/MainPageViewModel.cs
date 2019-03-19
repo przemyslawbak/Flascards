@@ -1,10 +1,12 @@
 ﻿using Flashcards.Command;
 using Flashcards.DataProvider;
 using Flashcards.Models;
+using Flashcards.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Flashcards.ViewModels
 {
@@ -16,21 +18,22 @@ namespace Flashcards.ViewModels
     {
         private IMainDataProvider _dataProvider;
         public List<string> Groups { get; set; }
-        public bool NewPhraseEdit { get; set; }
+        public bool PhraseEdit { get; set; }
         public MainPageViewModel(IMainDataProvider dataProvider) //ctor
         {
             Groups = new List<string>();
             _dataProvider = dataProvider;
 
             //commands
-            NewPhraseCommand = new DelegateCommand(OnNewPhraseExecute);
+            AddPhraseCommand = new DelegateCommand(OnNewPhraseExecute);
         }
 
-        public ICommand NewPhraseCommand { get; private set; }
+        public ICommand AddPhraseCommand { get; private set; }
 
-        private void OnNewPhraseExecute(object obj)
+        async public void OnNewPhraseExecute(object obj) //open new phrase page
         {
-            throw new NotImplementedException();
+            PhraseEdit = true;
+            await Application.Current.MainPage.Navigation.PushAsync(new PhraseEditPage());
         }
 
         public void LoadGroups() //loads group list from the DB
