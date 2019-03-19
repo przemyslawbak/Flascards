@@ -10,11 +10,12 @@ namespace Flashcards
 {
     public partial class MainPage : ContentPage
     {
-        MainPageViewModel vm;
-        public MainPage()
+        private MainPageViewModel _viewModel;
+        public MainPage(MainPageViewModel viewModel)
         {
-            vm = new MainPageViewModel();
-            BindingContext = vm;
+            _viewModel = viewModel; //dependency
+            _viewModel.LoadGroups(); //calls group load method from the VM
+            BindingContext = _viewModel; //sets up view context
             InitializeComponent();
         }
     }
