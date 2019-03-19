@@ -13,10 +13,10 @@ namespace Flascards.UnitTests.ViewModels
     public class MainPageViewModelTests
     {
         private MainPageViewModel _viewModel;
-        private List<Mock<IPhraseEditViewModel>> _phraseEditViewModelMocks;
+        private Mock<IPhraseEditViewModel> _phraseEditViewModelMock;
         public MainPageViewModelTests()
         {
-            _phraseEditViewModelMocks = new List<Mock<IPhraseEditViewModel>>();
+            _phraseEditViewModelMock = new Mock<IPhraseEditViewModel>();
             var mainDataProviderMock = new Mock<IMainDataProvider>();
             mainDataProviderMock.Setup(dp => dp.GetGroups())
               .Returns(new List<string>
@@ -37,6 +37,7 @@ namespace Flascards.UnitTests.ViewModels
                   phraseEditViewModelMock.Setup(vm => vm.Phrase)
             .Returns(new Phrase());
               });
+            _phraseEditViewModelMock = phraseEditViewModelMock; //field = var(!!)
             return phraseEditViewModelMock.Object;
         }
 
@@ -63,7 +64,7 @@ namespace Flascards.UnitTests.ViewModels
             _viewModel.PhraseEdit = false;
             _viewModel.AddPhraseCommand.Execute(null);
             Assert.True(_viewModel.PhraseEdit);
-            _phraseEditViewModelMocks.First().Verify(vm => vm.LoadPhrase(null), Times.Once);
+            _phraseEditViewModelMock.Verify(vm => vm.LoadPhrase(null), Times.Once);
         }
     }
 }
