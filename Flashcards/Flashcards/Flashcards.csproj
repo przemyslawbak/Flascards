@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DataProvider\DatabaseRepository.cs~RF1d6d2d1a.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac" Version="4.9.1" />
     <PackageReference Include="Prism.Core" Version="7.1.0.431" />
     <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
