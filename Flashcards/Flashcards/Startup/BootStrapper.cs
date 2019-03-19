@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Flashcards.DataAccess;
 using Flashcards.DataProvider;
 using Flashcards.ViewModels;
 using System;
@@ -18,6 +19,8 @@ namespace Flashcards.Startup
                 .AsSelf();
             builder.RegisterType<MainPageViewModel>()
                 .AsSelf();
+            builder.RegisterType<MainDataProvider>()
+                .As<IMainDataProvider>();
             return builder.Build();
         }
     }
