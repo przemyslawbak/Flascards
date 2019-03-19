@@ -47,7 +47,7 @@
                     Text="Add single phrase"
                     HorizontalOptions="Center"
                     Margin="0,0,5,0"
-                    Command="NewPhraseCommand">
+                    Command="{Binding AddPhraseCommand}">
             </Button>
         </Grid>
     </ContentPage.Content>
