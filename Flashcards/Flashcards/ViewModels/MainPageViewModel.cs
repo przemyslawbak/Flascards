@@ -6,14 +6,26 @@ using System.Text;
 
 namespace Flashcards.ViewModels
 {
-    public class MainPageViewModel
+    public interface IMainPageViewModel
     {
+        void LoadGroups();
+    }
+    public class MainPageViewModel : IMainPageViewModel
+    {
+        private IMainDataProvider _dataProvider;
         public List<string> Groups { get; set; }
-        public MainPageViewModel()
+        public MainPageViewModel(IMainDataProvider dataProvider) //ctor
         {
-            DatabaseRepository repo = new DatabaseRepository();
             Groups = new List<string>();
-            Groups = repo.GetGroups();
+            _dataProvider = dataProvider;
+        }
+        public void LoadGroups() //loads group list from the DB
+        {
+            Groups.Clear();
+            foreach (var group in _dataProvider.GetGroups())
+            {
+                Groups.Add(group);
+            }
         }
     }
 }
