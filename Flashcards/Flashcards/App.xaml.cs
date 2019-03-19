@@ -1,5 +1,4 @@
-﻿using Flashcards.Models;
-using System;
+﻿using Flashcards.DataProvider;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
