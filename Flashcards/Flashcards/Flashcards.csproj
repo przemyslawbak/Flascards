@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="DataProvider\DatabaseRepository.cs~RF1d6d2d1a.TMP" />
+    <None Remove="DataAccess\DatabaseRepository.cs~RF1d6d2d1a.TMP" />
   </ItemGroup>
 
   <ItemGroup>
