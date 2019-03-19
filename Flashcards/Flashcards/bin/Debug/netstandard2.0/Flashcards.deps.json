@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "4dedae0973cd3166be5fcec61a42113be667f60d"
+    "signature": "485099dadd54f4173f59b7d68accc84f9d33bf19"
   },
   "compilationOptions": {},
   "targets": {
@@ -10,6 +10,7 @@
       "Flashcards/1.0.0": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
+          "Prism.Core": "7.1.0.431",
           "Xamarin.Forms": "3.6.0.220655",
           "sqlite-net-pcl": "1.5.231"
         },
@@ -21,6 +22,14 @@
       "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "Prism.Core/7.1.0.431": {
+        "runtime": {
+          "lib/netstandard2.0/Prism.dll": {
+            "assemblyVersion": "7.1.0.431",
+            "fileVersion": "7.1.0.431"
+          }
         }
       },
       "sqlite-net-pcl/1.5.231": {
@@ -99,6 +108,13 @@
       "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "Prism.Core/7.1.0.431": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-l4sBztXr1d2aJ1Ub5OKcd8dkf18UV7k+DWRbi0uen8y0pqb0tH+OC1/B35ZvaxMNlCtl1VZYbeq6wypdcrt92A==",
+      "path": "prism.core/7.1.0.431",
+      "hashPath": "prism.core.7.1.0.431.nupkg.sha512"
     },
     "sqlite-net-pcl/1.5.231": {
       "type": "package",

@@ -32,3 +32,5 @@ Xamarin.Forms.Platform
 Xamarin.Forms.Xaml
 netstandard
 System.Reflection.Extensions
+Prism
+Autofac
