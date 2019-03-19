@@ -1,4 +1,5 @@
 ﻿using Flashcards.DataProvider;
+using Flashcards.Models;
 using Flashcards.ViewModels;
 using Moq;
 using System;
@@ -40,6 +41,13 @@ namespace Flascards.UnitTests.ViewModels
             var friend = _viewModel.Groups[0];
             Assert.NotNull(friend);
             Assert.Equal("Group #1", friend);
+        }
+        [Fact]
+        public void ShouldOpenNewPageOnNewPhraseExecute()
+        {
+            Phrase phrase = new Phrase();
+            _viewModel.NewPhraseCommand.Execute(phrase);
+            Assert.True(_viewModel.NewPhraseEdit);
         }
     }
 }
