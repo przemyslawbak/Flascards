@@ -5,4 +5,5 @@
 problem solved with adding SQLite_Android to Flashcards.Android, and updating packages in the same project, updates on the MainPage,
 seeded SQLite DB, created MainPage VM, started TDD_MVVM PluralSight tutorial to get it better...
 11.03 - 17.03 - studying TDD in MVVM
-19.03 - switched to xUnit, installed Autofac,
+19.03 - switched to xUnit, installed Autofac, created first main VM tests, updated app startup, updated main view data cobtext,
+updated architecture - created new layers for data access, commands and data providers, updated main VM
