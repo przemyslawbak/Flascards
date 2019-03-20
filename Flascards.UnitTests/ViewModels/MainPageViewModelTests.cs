@@ -59,12 +59,17 @@ namespace Flascards.UnitTests.ViewModels
             Assert.Equal("Group #1", friend);
         }
         [Fact]
-        public void ShouldAddNewPhraseAndGivePhraseEditPropertyTrue()
+        public void ShouldOpenNewPhraseAndSetPhraseEditPropertyTrue()
         {
             _viewModel.PhraseEdit = false;
             _viewModel.AddPhraseCommand.Execute(null);
             Assert.True(_viewModel.PhraseEdit);
             _phraseEditViewModelMock.Verify(vm => vm.LoadPhrase(null), Times.Once);
+        }
+        [Fact]
+        public void ShouldRunLoadFromFileCommand()
+        {
+
         }
     }
 }
