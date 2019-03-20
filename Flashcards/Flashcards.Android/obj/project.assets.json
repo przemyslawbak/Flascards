@@ -423,7 +423,7 @@
         "dependencies": {
           "Autofac": "4.9.1",
           "Prism.Core": "7.1.0.431",
-          "Xamarin.Forms": "3.6.0.220655",
+          "Xamarin.Forms": "3.6.0.264807",
           "sqlite-net-pcl": "1.5.231"
         },
         "compile": {
@@ -1265,5 +1265,17 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 3.6.0.264807 to 3.6.0.220655. Reference the package directly from the project to select a different version. \r\n Flashcards.Android -> Flashcards -> Xamarin.Forms (>= 3.6.0.264807) \r\n Flashcards.Android -> Xamarin.Forms (>= 3.6.0.220655)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    }
+  ]
 }
