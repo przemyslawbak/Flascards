@@ -19,6 +19,8 @@ namespace Flashcards.Startup
                 .AsSelf();
             builder.RegisterType<MainPageViewModel>()
                 .AsSelf();
+            builder.RegisterType<PhraseEditViewModel>()
+                .As<IPhraseEditViewModel>();
             builder.RegisterType<MainDataProvider>()
                 .As<IMainDataProvider>();
             builder.RegisterType<PhraseDataProvider>()
