@@ -33,6 +33,7 @@ namespace Flashcards.ViewModels
         }
 
         public ICommand AddPhraseCommand { get; private set; }
+        public ICommand LoadFromFile { get; private set; }
 
         private void OnNewPhraseExecute(object obj)
         {
@@ -41,6 +42,7 @@ namespace Flashcards.ViewModels
 
         private IPhraseEditViewModel CreateAndLoadPhraseEditViewModel(int? phraseId)
         {
+            //Application.Current.MainPage.Navigation.PushAsync(new PhraseEditPage());
             var phraseEditVm = _phraseEditVmCreator();
             PhraseEdit = true;
             phraseEditVm.LoadPhrase(phraseId);
