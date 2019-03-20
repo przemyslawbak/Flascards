@@ -28,7 +28,7 @@ namespace Flascards.UnitTests.ViewModels
             _viewModel = new MainPageViewModel(mainDataProviderMock.Object, CreatePhraseEditViewModel);
         }
 
-        private IPhraseEditViewModel CreatePhraseEditViewModel() //method for creating phrase edit VM
+        private IPhraseEditViewModel CreatePhraseEditViewModel() //method for creating PhraseEditVM
         {
             var phraseEditViewModelMock = new Mock<IPhraseEditViewModel>();
             phraseEditViewModelMock.Setup(vm => vm.LoadPhrase(It.IsAny<int>()))
