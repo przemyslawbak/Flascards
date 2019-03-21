@@ -8,9 +8,9 @@ namespace Flashcards.DataProvider
 {
     public class PhraseDataProvider : IPhraseDataProvider
     {
-        private readonly Func<IDatabaseRepository> _dataServiceCreator;
+        private readonly Func<IDataRepository> _dataServiceCreator;
 
-        public PhraseDataProvider(Func<IDatabaseRepository> dataServiceCreator) //ctor
+        public PhraseDataProvider(Func<IDataRepository> dataServiceCreator) //ctor
         {
             _dataServiceCreator = dataServiceCreator;
         }
