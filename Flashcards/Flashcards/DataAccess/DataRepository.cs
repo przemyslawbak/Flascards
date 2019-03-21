@@ -1,5 +1,6 @@
 ﻿using Flashcards.Models;
 using LumenWorks.Framework.IO.Csv;
+using Plugin.FilePicker;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Flashcards.DataAccess
@@ -89,6 +91,26 @@ namespace Flashcards.DataAccess
                 Debug.WriteLine("Exception choosing file: " + ex.ToString());
             }
             return null;
+        }
+        public async Task<string> PickUpFile()
+        {
+            try
+            {
+                var file = await CrossFilePicker.Current.PickFile();
+                if (file != null)
+                {
+                    return file.FilePath;
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception choosing file: " + ex.ToString());
+                return "";
+            }
         }
     }
 }
