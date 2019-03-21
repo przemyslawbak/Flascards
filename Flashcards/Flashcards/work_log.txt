@@ -9,4 +9,5 @@ seeded SQLite DB, created MainPage VM, started TDD_MVVM PluralSight tutorial to 
 updated architecture - created new layers for data access, commands and data providers, updated main VM
 20.03 - cont. with TDD, created method loading CSV format string from the file and creating collection of objects,
 trouble shooting Autofac exception - resolved by itself after xamarin solution and addroid emulator rebuilds (!)
-21.03 -
+21.03 - Finally understood Mocking(!), Added new Tests, TODO list, refactorized layers for PickUpFile mocking
+22.03 -
