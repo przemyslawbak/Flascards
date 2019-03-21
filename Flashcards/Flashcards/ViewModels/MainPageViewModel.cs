@@ -29,9 +29,10 @@ namespace Flashcards.ViewModels
         public MainPageViewModel(IMainDataProvider dataProvider,
             Func<IPhraseEditViewModel> phraseditVmCreator) //ctor
         {
+            _dataProvider = dataProvider;
             _phraseEditVmCreator = phraseditVmCreator;
             Groups = new List<string>();
-            _dataProvider = dataProvider;
+            LoadedPhrases = new List<Phrase>();
             //commands
             AddPhraseCommand = new DelegateCommand(OnNewPhraseExecute);
         }
