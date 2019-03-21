@@ -26,9 +26,7 @@ namespace Flascards.UnitTests.ViewModels
           "Group #3"
              });
             mainDataProviderMock.Setup(dp => dp.GetStreamFromCSV("data.csv"))
-              .Returns(@"Name|Definition|Category|Group|Priority
-name1|def1|cat1|gr1|prio1
-name2|def2|cat2|gr2|prio2");
+              .Returns("Name|Definition|Category|Group|Priority\nname1 |def1|cat1|gr1|prio1\nname2 |def2|cat2|gr2|prio2");
 
             _viewModel = new MainPageViewModel(mainDataProviderMock.Object, CreatePhraseEditViewModel);
         }
