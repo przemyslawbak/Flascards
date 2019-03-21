@@ -55,6 +55,7 @@ C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\android\assets\System.Web.Services.dll
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\android\assets\System.Runtime.dll
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\android\assets\System.Resources.ResourceManager.dll
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\android\assets\System.IO.dll
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\android\assets\System.Threading.Tasks.dll
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\android\assets\System.Collections.dll
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\android\assets\System.Runtime.Extensions.dll

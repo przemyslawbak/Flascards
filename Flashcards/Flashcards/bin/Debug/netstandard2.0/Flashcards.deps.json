@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "701d264e4490c834b87f592e625ea82472c32a41"
+    "signature": "500c3b67d1486e3266a19a2b14bb170ebe38fb11"
   },
   "compilationOptions": {},
   "targets": {
@@ -13,8 +13,8 @@
           "LumenWorks.Framework.IO.Core": "1.0.1",
           "NETStandard.Library": "2.0.3",
           "Prism.Core": "7.1.0.431",
-          "Xam.Plugin.FilePicker": "1.1.0",
           "Xamarin.Forms": "3.6.0.264807",
+          "Xamarin.Plugin.FilePicker": "2.0.135",
           "sqlite-net-pcl": "1.5.231"
         },
         "runtime": {
@@ -90,18 +90,6 @@
           }
         }
       },
-      "Xam.Plugin.FilePicker/1.1.0": {
-        "runtime": {
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.FilePicker.Abstractions.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          },
-          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Plugin.FilePicker.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "Xamarin.Forms/3.6.0.264807": {
         "runtime": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
@@ -115,6 +103,18 @@
           "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "Xamarin.Plugin.FilePicker/2.0.135": {
+        "runtime": {
+          "lib/netstandard1.0/Plugin.FilePicker.Abstractions.dll": {
+            "assemblyVersion": "2.0.135.0",
+            "fileVersion": "2.0.135.0"
+          },
+          "lib/netstandard1.0/Plugin.FilePicker.dll": {
+            "assemblyVersion": "2.0.135.0",
+            "fileVersion": "2.0.135.0"
           }
         }
       }
@@ -182,19 +182,19 @@
       "path": "sqlitepclraw.core/1.1.11",
       "hashPath": "sqlitepclraw.core.1.1.11.nupkg.sha512"
     },
-    "Xam.Plugin.FilePicker/1.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ORzNG6dEgdBZnIdmbQCpNB4LSSTjBebwGjb1XZrgfbBGjX9muHBfZeQwOnNRvcGlm6fkylzTj2rDslDA1E/JFA==",
-      "path": "xam.plugin.filepicker/1.1.0",
-      "hashPath": "xam.plugin.filepicker.1.1.0.nupkg.sha512"
-    },
     "Xamarin.Forms/3.6.0.264807": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-PbnXpStyxNYJzPrXXMW17F4YeMsFAs6YT9LL2vxObDWCGtaKkLia4UyBPF3Qbhy+lQPeap/ijV1Rlvasp4DFiA==",
       "path": "xamarin.forms/3.6.0.264807",
       "hashPath": "xamarin.forms.3.6.0.264807.nupkg.sha512"
+    },
+    "Xamarin.Plugin.FilePicker/2.0.135": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NCD5/Xy2RGNlGYBoiSnC2qbiuecb9TZ4lyZZERYEH1Ge6g580yHkv2W7Tj/rf1I3QSI9ClDwHA23dDb6L/khKw==",
+      "path": "xamarin.plugin.filepicker/2.0.135",
+      "hashPath": "xamarin.plugin.filepicker.2.0.135.nupkg.sha512"
     }
   }
 }

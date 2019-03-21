@@ -1828,6 +1828,17 @@
           "build/_._": {}
         }
       },
+      "Xamarin.Plugin.FilePicker/2.0.135": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/Plugin.FilePicker.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.FilePicker.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.FilePicker.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.FilePicker.dll": {}
+        }
+      },
       "xunit/2.4.1": {
         "type": "package",
         "dependencies": {
@@ -1917,8 +1928,8 @@
           "Autofac": "4.9.1",
           "LumenWorks.Framework.IO.Core": "1.0.1",
           "Prism.Core": "7.1.0.431",
-          "Xam.Plugin.FilePicker": "1.1.0",
           "Xamarin.Forms": "3.6.0.264807",
+          "Xamarin.Plugin.FilePicker": "2.0.135",
           "sqlite-net-pcl": "1.5.231"
         },
         "compile": {
@@ -6550,6 +6561,54 @@
         "lib/uap10.0/Xamarin.Forms.Xaml.xml",
         "xamarin.forms.3.6.0.264807.nupkg.sha512",
         "xamarin.forms.nuspec"
+      ]
+    },
+    "Xamarin.Plugin.FilePicker/2.0.135": {
+      "sha512": "NCD5/Xy2RGNlGYBoiSnC2qbiuecb9TZ4lyZZERYEH1Ge6g580yHkv2W7Tj/rf1I3QSI9ClDwHA23dDb6L/khKw==",
+      "type": "package",
+      "path": "xamarin.plugin.filepicker/2.0.135",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Plugin.FilePicker.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.FilePicker.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.FilePicker.Abstractions.xml",
+        "lib/MonoAndroid10/Plugin.FilePicker.XML",
+        "lib/MonoAndroid10/Plugin.FilePicker.dll",
+        "lib/MonoAndroid10/Plugin.FilePicker.dll.mdb",
+        "lib/MonoAndroid10/Plugin.FilePicker.pdb",
+        "lib/UAP10/Plugin.FilePicker.Abstractions.dll",
+        "lib/UAP10/Plugin.FilePicker.Abstractions.pdb",
+        "lib/UAP10/Plugin.FilePicker.Abstractions.xml",
+        "lib/UAP10/Plugin.FilePicker.XML",
+        "lib/UAP10/Plugin.FilePicker.dll",
+        "lib/UAP10/Plugin.FilePicker.pdb",
+        "lib/UAP10/Plugin.FilePicker.pri",
+        "lib/Xamarin.Mac20/Plugin.FilePicker.Abstractions.dll",
+        "lib/Xamarin.Mac20/Plugin.FilePicker.Abstractions.pdb",
+        "lib/Xamarin.Mac20/Plugin.FilePicker.Abstractions.xml",
+        "lib/Xamarin.Mac20/Plugin.FilePicker.dll",
+        "lib/Xamarin.Mac20/Plugin.FilePicker.pdb",
+        "lib/Xamarin.Mac20/Plugin.FilePicker.xml",
+        "lib/Xamarin.iOS10/Plugin.FilePicker.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.FilePicker.Abstractions.pdb",
+        "lib/Xamarin.iOS10/Plugin.FilePicker.Abstractions.xml",
+        "lib/Xamarin.iOS10/Plugin.FilePicker.XML",
+        "lib/Xamarin.iOS10/Plugin.FilePicker.dll",
+        "lib/net45/Plugin.FilePicker.Abstractions.dll",
+        "lib/net45/Plugin.FilePicker.Abstractions.pdb",
+        "lib/net45/Plugin.FilePicker.Abstractions.xml",
+        "lib/net45/Plugin.FilePicker.dll",
+        "lib/net45/Plugin.FilePicker.pdb",
+        "lib/netstandard1.0/Plugin.FilePicker.Abstractions.dll",
+        "lib/netstandard1.0/Plugin.FilePicker.Abstractions.pdb",
+        "lib/netstandard1.0/Plugin.FilePicker.Abstractions.xml",
+        "lib/netstandard1.0/Plugin.FilePicker.deps.json",
+        "lib/netstandard1.0/Plugin.FilePicker.dll",
+        "lib/netstandard1.0/Plugin.FilePicker.pdb",
+        "lib/netstandard1.0/Plugin.FilePicker.xml",
+        "xamarin.plugin.filepicker.2.0.135.nupkg.sha512",
+        "xamarin.plugin.filepicker.nuspec"
       ]
     },
     "xunit/2.4.1": {
