@@ -3,6 +3,7 @@ using Flashcards.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Flashcards.DataProvider
 {
@@ -32,6 +33,13 @@ namespace Flashcards.DataProvider
             using (var dataService = _dataServiceCreator())
             {
                 dataService.SavePhrase(phrase);
+            }
+        }
+        public async Task<string> PickUpFile()
+        {
+            using (var dataService = _dataServiceCreator())
+            {
+                return await dataService.PickUpFile();
             }
         }
     }

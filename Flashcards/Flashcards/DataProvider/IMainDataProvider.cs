@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Flashcards.DataProvider
 {
@@ -10,5 +11,6 @@ namespace Flashcards.DataProvider
         List<string> GetGroups();
         string GetStreamFromCSV(string filePath);
         void SavePhrase(Phrase phrase);
+        Task<string> PickUpFile();
     }
 }
