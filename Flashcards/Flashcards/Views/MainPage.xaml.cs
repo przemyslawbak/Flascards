@@ -15,7 +15,7 @@ namespace Flashcards
         {
             _viewModel = viewModel; //dependency
             _viewModel.LoadGroups(); //calls group load method from the VM
-            _viewModel.LoadFromFile("data.csv");
+            //_viewModel.LoadFromFile("data.csv"); //spiking
             BindingContext = _viewModel; //sets up view context
             InitializeComponent();
         }
