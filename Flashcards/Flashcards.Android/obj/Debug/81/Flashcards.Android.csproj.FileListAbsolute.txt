@@ -167,8 +167,6 @@ C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\bin\Debug\System.ServiceModel.Internals.pdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\bin\Debug\System.Web.Services.pdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\bin\Debug\Mono.Security.pdb
-C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\bin\Debug\Flashcards.dll.mdb
-C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\bin\Debug\Prism.dll.mdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\linksrc\Flashcards.Android.pdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\linksrc\Autofac.pdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\linksrc\FormsViewGroup.pdb
@@ -192,9 +190,17 @@ C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\linksrc\System.ServiceModel.Internals.pdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\linksrc\System.Web.Services.pdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\linksrc\Mono.Security.pdb
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\bin\Debug\Flashcards.dll.mdb
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\bin\Debug\Plugin.FilePicker.Abstractions.dll.mdb
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\bin\Debug\Plugin.FilePicker.dll.mdb
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\bin\Debug\Prism.dll.mdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\linksrc\Flashcards.dll.mdb
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\linksrc\Plugin.FilePicker.Abstractions.dll.mdb
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\linksrc\Plugin.FilePicker.dll.mdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\linksrc\Prism.dll.mdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\android\assets\Flashcards.dll.mdb
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\android\assets\Plugin.FilePicker.Abstractions.dll.mdb
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\android\assets\Plugin.FilePicker.dll.mdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\android\assets\Prism.dll.mdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\android\assets\Autofac.pdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\android\assets\Flashcards.Android.pdb
@@ -220,4 +226,6 @@ C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\android\assets\Xamarin.Forms.Platform.Android.pdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\android\assets\Xamarin.Forms.Xaml.pdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\linksrc\Flashcards.dll.mdb
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\linksrc\Plugin.FilePicker.Abstractions.dll.mdb
+C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\linksrc\Plugin.FilePicker.dll.mdb
 C:\Users\asus\Desktop\IT\Programowanie\Projekty\Flashcards\Flashcards\Flashcards.Android\obj\Debug\81\linksrc\Prism.dll.mdb

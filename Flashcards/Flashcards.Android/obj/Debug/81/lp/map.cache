@@ -1,6 +1,9 @@
 Autofac
 Flashcards
 FormsViewGroup
+LumenWorks.Framework.IO.Core
+Plugin.FilePicker.Abstractions
+Plugin.FilePicker
 Prism
 SQLite-net
 SQLitePCLRaw.batteries_green
@@ -34,3 +37,4 @@ Xamarin.Forms.Platform
 Xamarin.Forms.Xaml
 netstandard
 System.Reflection.Extensions
+System.Resources.ResourceManager
