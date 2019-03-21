@@ -66,16 +66,7 @@ namespace Flashcards.ViewModels
         {
             string stream = "";
             LoadedPhrases.Clear();
-            if (File.Exists(filePath))
-            {
-                stream = _dataProvider.GetStreamFromCSV(filePath);
-            }
-            else
-            {
-                stream = @"Name | Definition | Category | Group | Priority
-error1 | def1 | cat1 | gr1 | prio1
-error2 | def2 | cat2 | gr2 | prio2";
-            }
+            stream = _dataProvider.GetStreamFromCSV(filePath);
             Dictionary<string, int> myPhraseMap = new Dictionary<string, int>();
             var sr = new StringReader(stream);
             using (var csv = new CsvReader(sr, true, '|'))
