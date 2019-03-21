@@ -13,8 +13,8 @@ namespace Flashcards.Startup
         public IContainer BootStrap()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterType<DatabaseRepository>()
-                .As<IDatabaseRepository>();
+            builder.RegisterType<DataRepository>()
+                .As<IDataRepository>();
             builder.RegisterType<MainPage>()
                 .AsSelf();
             builder.RegisterType<MainPageViewModel>()
