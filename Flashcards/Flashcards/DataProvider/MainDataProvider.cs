@@ -1,4 +1,5 @@
 ﻿using Flashcards.DataAccess;
+using Flashcards.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,8 +8,8 @@ namespace Flashcards.DataProvider
 {
     public class MainDataProvider : IMainDataProvider
     {
-        private Func<IDatabaseRepository> _dataServiceCreator;
-        public MainDataProvider(Func<IDatabaseRepository> dataServiceCreator)
+        private Func<IDataRepository> _dataServiceCreator;
+        public MainDataProvider(Func<IDataRepository> dataServiceCreator)
         {
             _dataServiceCreator = dataServiceCreator;
         }
@@ -17,6 +18,13 @@ namespace Flashcards.DataProvider
             using (var dataService = _dataServiceCreator())
             {
                 return dataService.GetGroups();
+            }
+        }
+        public string GetStreamFromCSV(string filePath)
+        {
+            using (var dataService = _dataServiceCreator())
+            {
+                return dataService.GetStreamFromCSV(filePath);
             }
         }
     }
