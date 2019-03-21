@@ -653,11 +653,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj",
+      "projectUniqueName": "C:\\Users\\asus\\Desktop\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj",
       "projectName": "Flashcards",
-      "projectPath": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj",
+      "projectPath": "C:\\Users\\asus\\Desktop\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj",
       "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flashcards\\Flashcards\\obj\\",
+      "outputPath": "C:\\Users\\asus\\Desktop\\Flashcards\\Flashcards\\Flashcards\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

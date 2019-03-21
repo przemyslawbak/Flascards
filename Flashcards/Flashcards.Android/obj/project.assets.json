@@ -1294,11 +1294,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flashcards\\Flashcards.Android\\Flashcards.Android.csproj",
+      "projectUniqueName": "C:\\Users\\asus\\Desktop\\Flashcards\\Flashcards\\Flashcards.Android\\Flashcards.Android.csproj",
       "projectName": "Flashcards.Android",
-      "projectPath": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flashcards\\Flashcards.Android\\Flashcards.Android.csproj",
+      "projectPath": "C:\\Users\\asus\\Desktop\\Flashcards\\Flashcards\\Flashcards.Android\\Flashcards.Android.csproj",
       "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flashcards\\Flashcards.Android\\obj\\",
+      "outputPath": "C:\\Users\\asus\\Desktop\\Flashcards\\Flashcards\\Flashcards.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -1316,8 +1316,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj": {
-              "projectPath": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj"
+            "C:\\Users\\asus\\Desktop\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj": {
+              "projectPath": "C:\\Users\\asus\\Desktop\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj"
             }
           }
         }
