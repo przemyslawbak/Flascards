@@ -9,5 +9,6 @@ namespace Flashcards.DataProvider
     {
         List<string> GetGroups();
         string GetStreamFromCSV(string filePath);
+        void SavePhrase(Phrase phrase);
     }
 }

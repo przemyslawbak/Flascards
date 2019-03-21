@@ -27,5 +27,12 @@ namespace Flashcards.DataProvider
                 return dataService.GetStreamFromCSV(filePath);
             }
         }
+        public void SavePhrase(Phrase phrase)
+        {
+            using (var dataService = _dataServiceCreator())
+            {
+                dataService.SavePhrase(phrase);
+            }
+        }
     }
 }
