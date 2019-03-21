@@ -21,7 +21,6 @@ namespace Flashcards.ViewModels
     public interface IMainPageViewModel
     {
         void LoadGroups();
-        List<Phrase> LoadFromFile(string filePath);
     }
     public class MainPageViewModel : ViewModelBase, IMainPageViewModel
     {
@@ -39,7 +38,7 @@ namespace Flashcards.ViewModels
             _phraseEditVmCreator = phraseditVmCreator;
             Groups = new ObservableCollection<string>();
             LoadedPhrases = new List<Phrase>();
-            //commands
+            //commands tests
             AddPhraseCommand = new DelegateCommand(OnNewPhraseExecute);
             LoadFile = new DelegateCommand(OnLoadFileExecute);
         }
@@ -51,34 +50,6 @@ namespace Flashcards.ViewModels
         {
             SelectedPhraseEditViewModel = CreateAndLoadPhraseEditViewModel(null);
         }
-        private async void OnLoadFileExecute(object obj)
-        {
-            await PickUpFile();
-            LoadedPhrases = LoadFromFile(FileLocation);
-            PopulateDb(LoadedPhrases);
-            LoadGroups();
-        }
-
-        public async Task PickUpFile()
-        {
-            try
-            {
-                FileLocation = "";
-                var file = await CrossFilePicker.Current.PickFile();
-                if (file != null)
-                {
-                    FileLocation = file.FilePath;
-                }
-                else
-                {
-                    FileLocation = "";
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Exception choosing file: " + ex.ToString());
-            }
-        }
 
         private IPhraseEditViewModel CreateAndLoadPhraseEditViewModel(int? phraseId)
         {
@@ -88,7 +59,14 @@ namespace Flashcards.ViewModels
             phraseEditVm.LoadPhrase(phraseId);
             return phraseEditVm;
         }
-
+        private async void OnLoadFileExecute(object obj)
+        {
+            LoadedPhrases.Clear();
+            FileLocation = await _dataProvider.PickUpFile();
+            LoadedPhrases = LoadFromFile(FileLocation);
+            PopulateDb(LoadedPhrases);
+            LoadGroups();
+        }
         public void LoadGroups() //loads group list from the DB
         {
             Groups.Clear();
@@ -128,7 +106,7 @@ namespace Flashcards.ViewModels
                 }
                 if (LoadedPhrases == null)
                 {
-                    // info that file is empty or format is wrong
+                    // info that file is empty or format is wrong (maybe)
                 }
                 return LoadedPhrases;
             }
