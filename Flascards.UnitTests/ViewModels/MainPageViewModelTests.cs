@@ -85,27 +85,5 @@ namespace Flascards.UnitTests.ViewModels
             Assert.Equal("prio1", phrase.Priority);
         }
 
-        /* ILL BE BACK
-        [Fact]
-        public void PopulateDbMethodShouldSeedSQLite()
-        {
-            List<Phrase> phrases = new List<Phrase>()
-            {
-                new Phrase
-                {
-                    Name = "newName1",
-                    Definition = "newDef1",
-                    Category = "newCat1",
-                    Group = "newGr1",
-                    Priority = "newPrio1"
-                }
-            };
-            _viewModel.PopulateDb(phrases);
-            _dataProviderMock.Verify(dp => dp.SavePhrase(phrases[0]), Times.Once);
-        }
-        */
-
-
-        //zły format pliku
     }
 }
