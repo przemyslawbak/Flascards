@@ -3,6 +3,7 @@ using LumenWorks.Framework.IO.Csv;
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -71,12 +72,23 @@ namespace Flashcards.DataAccess
         }
         public string GetStreamFromCSV(string filePath)
         {
-            string readContents;
-            using (StreamReader streamReader = new StreamReader(filePath, Encoding.UTF8))
+            try
             {
-                readContents = streamReader.ReadToEnd();
+                if (!string.IsNullOrWhiteSpace(filePath))
+                {
+                    string readContents;
+                    using (StreamReader streamReader = new StreamReader(filePath, Encoding.UTF8))
+                    {
+                        readContents = streamReader.ReadToEnd();
+                    }
+                    return readContents;
+                }
             }
-            return readContents;
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception choosing file: " + ex.ToString());
+            }
+            return null;
         }
     }
 }
