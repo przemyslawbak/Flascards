@@ -35,6 +35,7 @@ namespace Flashcards.ViewModels
             LoadedPhrases = new List<Phrase>();
             //commands
             AddPhraseCommand = new DelegateCommand(OnNewPhraseExecute);
+            LoadFile = new DelegateCommand(OnLoadFileExecute);
         }
 
         public ICommand AddPhraseCommand { get; private set; }
@@ -43,6 +44,19 @@ namespace Flashcards.ViewModels
         private void OnNewPhraseExecute(object obj)
         {
             SelectedPhraseEditViewModel = CreateAndLoadPhraseEditViewModel(null);
+        }
+        private void OnLoadFileExecute(object obj)
+        {
+            // execute command
+            //1. pick up file, take string
+            //2. LoadFromFile(string), take List<Phrase>
+            //3. PopulateDb(List<Phrase>), take nothing
+        }
+
+        public string PickUpFile()
+        {
+            // pick up method, return string (file path)
+            return "";
         }
 
         private IPhraseEditViewModel CreateAndLoadPhraseEditViewModel(int? phraseId)
@@ -91,6 +105,13 @@ namespace Flashcards.ViewModels
                     LoadedPhrases.Add(phrase);
                 }
                 return LoadedPhrases;
+            }
+        }
+        public void PopulateDb(List<Phrase> phrases)
+        {
+            foreach (var item in phrases)
+            {
+                _dataProvider.SavePhrase(item);
             }
         }
         public IPhraseEditViewModel SelectedPhraseEditViewModel
