@@ -1,10 +1,15 @@
-﻿using Flashcards.Command;
+﻿using Autofac;
+using Flashcards.Command;
 using Flashcards.DataProvider;
 using Flashcards.Models;
+using Flashcards.Startup;
 using Flashcards.Views;
 using LumenWorks.Framework.IO.Csv;
+using Plugin.FilePicker;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +28,8 @@ namespace Flashcards.ViewModels
         private IPhraseEditViewModel _selectedPhraseEditViewModel;
         private Func<IPhraseEditViewModel> _phraseEditVmCreator;
         private IMainDataProvider _dataProvider;
-        public List<string> Groups { get; set; }
+        public string FileLocation { get; set; }
+        public ObservableCollection<string> Groups { get; set; }
         public List<Phrase> LoadedPhrases { get; set; }
         public bool PhraseEdit { get; set; }
         public MainPageViewModel(IMainDataProvider dataProvider,
@@ -31,7 +37,7 @@ namespace Flashcards.ViewModels
         {
             _dataProvider = dataProvider;
             _phraseEditVmCreator = phraseditVmCreator;
-            Groups = new List<string>();
+            Groups = new ObservableCollection<string>();
             LoadedPhrases = new List<Phrase>();
             //commands
             AddPhraseCommand = new DelegateCommand(OnNewPhraseExecute);
@@ -45,18 +51,33 @@ namespace Flashcards.ViewModels
         {
             SelectedPhraseEditViewModel = CreateAndLoadPhraseEditViewModel(null);
         }
-        private void OnLoadFileExecute(object obj)
+        private async void OnLoadFileExecute(object obj)
         {
-            // execute command
-            //1. pick up file, take string
-            //2. LoadFromFile(string), take List<Phrase>
-            //3. PopulateDb(List<Phrase>), take nothing
+            await PickUpFile();
+            LoadedPhrases = LoadFromFile(FileLocation);
+            PopulateDb(LoadedPhrases);
+            LoadGroups();
         }
 
-        public string PickUpFile()
+        public async Task PickUpFile()
         {
-            // pick up method, return string (file path)
-            return "";
+            try
+            {
+                FileLocation = "";
+                var file = await CrossFilePicker.Current.PickFile();
+                if (file != null)
+                {
+                    FileLocation = file.FilePath;
+                }
+                else
+                {
+                    FileLocation = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception choosing file: " + ex.ToString());
+            }
         }
 
         private IPhraseEditViewModel CreateAndLoadPhraseEditViewModel(int? phraseId)
@@ -80,8 +101,9 @@ namespace Flashcards.ViewModels
         {
             string stream = "";
             LoadedPhrases.Clear();
-            stream = _dataProvider.GetStreamFromCSV(filePath);
-            Dictionary<string, int> myPhraseMap = new Dictionary<string, int>();
+            stream = _dataProvider.GetStreamFromCSV(filePath); //if filePath == null, GetStreamFromCSV returns null;
+
+            Dictionary<string, int> myPhraseMap = new Dictionary<string, int>(); //exception for wrong format
             var sr = new StringReader(stream);
             using (var csv = new CsvReader(sr, true, '|'))
             {
@@ -89,7 +111,7 @@ namespace Flashcards.ViewModels
                 string[] headers = csv.GetFieldHeaders();
                 for (int i = 0; i < fieldCount; i++)
                 {
-                    myPhraseMap[headers[i]] = i; // track the index of each column name
+                    myPhraseMap[headers[i]] = i;
                 }
                 while (csv.ReadNextRecord())
                 {
@@ -103,6 +125,10 @@ namespace Flashcards.ViewModels
                         Learned = false
                     };
                     LoadedPhrases.Add(phrase);
+                }
+                if (LoadedPhrases == null)
+                {
+                    // info that file is empty or format is wrong
                 }
                 return LoadedPhrases;
             }
