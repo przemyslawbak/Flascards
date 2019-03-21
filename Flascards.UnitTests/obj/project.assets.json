@@ -6711,11 +6711,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\asus\\Desktop\\Flashcards\\Flascards.UnitTests\\Flascards.UnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flascards.UnitTests\\Flascards.UnitTests.csproj",
       "projectName": "Flascards.UnitTests",
-      "projectPath": "C:\\Users\\asus\\Desktop\\Flashcards\\Flascards.UnitTests\\Flascards.UnitTests.csproj",
+      "projectPath": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flascards.UnitTests\\Flascards.UnitTests.csproj",
       "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\asus\\Desktop\\Flashcards\\Flascards.UnitTests\\obj\\",
+      "outputPath": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flascards.UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6735,8 +6735,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\asus\\Desktop\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj": {
-              "projectPath": "C:\\Users\\asus\\Desktop\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj"
+            "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj": {
+              "projectPath": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj"
             }
           }
         }

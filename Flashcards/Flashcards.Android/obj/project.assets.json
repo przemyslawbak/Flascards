@@ -409,7 +409,7 @@
           "build/monoandroid81/Xamarin.Android.Support.Vector.Drawable.targets": {}
         }
       },
-      "Xamarin.Forms/3.6.0.220655": {
+      "Xamarin.Forms/3.6.0.264807": {
         "type": "package",
         "dependencies": {
           "Xamarin.Android.Support.Design": "27.0.2",
@@ -1106,10 +1106,10 @@
         "xamarin.android.support.vector.drawable.nuspec"
       ]
     },
-    "Xamarin.Forms/3.6.0.220655": {
-      "sha512": "vpPeq+GpNGj9uAyHjzeaPtPPAHxajanj2ct7ZqQ1RXGUlthi/yK5nnmyv9L/IGQ3fzgU28PBID7yQL13P3bGig==",
+    "Xamarin.Forms/3.6.0.264807": {
+      "sha512": "PbnXpStyxNYJzPrXXMW17F4YeMsFAs6YT9LL2vxObDWCGtaKkLia4UyBPF3Qbhy+lQPeap/ijV1Rlvasp4DFiA==",
       "type": "package",
-      "path": "xamarin.forms/3.6.0.220655",
+      "path": "xamarin.forms/3.6.0.264807",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1267,7 +1267,7 @@
         "lib/uap10.0/Xamarin.Forms.Xaml.dll",
         "lib/uap10.0/Xamarin.Forms.Xaml.pdb",
         "lib/uap10.0/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.3.6.0.220655.nupkg.sha512",
+        "xamarin.forms.3.6.0.264807.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -1285,7 +1285,7 @@
       "Xamarin.Android.Support.v7.AppCompat >= 28.0.0.1",
       "Xamarin.Android.Support.v7.CardView >= 28.0.0.1",
       "Xamarin.Android.Support.v7.MediaRouter >= 28.0.0.1",
-      "Xamarin.Forms >= 3.6.0.220655"
+      "Xamarin.Forms >= 3.6.0.264807"
     ]
   },
   "packageFolders": {
@@ -1294,11 +1294,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\asus\\Desktop\\Flashcards\\Flashcards\\Flashcards.Android\\Flashcards.Android.csproj",
+      "projectUniqueName": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flashcards\\Flashcards.Android\\Flashcards.Android.csproj",
       "projectName": "Flashcards.Android",
-      "projectPath": "C:\\Users\\asus\\Desktop\\Flashcards\\Flashcards\\Flashcards.Android\\Flashcards.Android.csproj",
+      "projectPath": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flashcards\\Flashcards.Android\\Flashcards.Android.csproj",
       "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\asus\\Desktop\\Flashcards\\Flashcards\\Flashcards.Android\\obj\\",
+      "outputPath": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flashcards\\Flashcards.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -1316,8 +1316,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\asus\\Desktop\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj": {
-              "projectPath": "C:\\Users\\asus\\Desktop\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj"
+            "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj": {
+              "projectPath": "C:\\Users\\asus\\Desktop\\IT\\Programowanie\\Projekty\\Flashcards\\Flashcards\\Flashcards\\Flashcards.csproj"
             }
           }
         }
@@ -1348,22 +1348,10 @@
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[3.6.0.220655, )"
+            "version": "[3.6.0.264807, )"
           }
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package downgrade: Xamarin.Forms from 3.6.0.264807 to 3.6.0.220655. Reference the package directly from the project to select a different version. \r\n Flashcards.Android -> Flashcards -> Xamarin.Forms (>= 3.6.0.264807) \r\n Flashcards.Android -> Xamarin.Forms (>= 3.6.0.220655)",
-      "libraryId": "Xamarin.Forms",
-      "targetGraphs": [
-        "MonoAndroid,Version=v8.1"
-      ]
-    }
-  ]
+  }
 }
