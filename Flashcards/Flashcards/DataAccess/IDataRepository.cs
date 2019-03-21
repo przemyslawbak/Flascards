@@ -13,7 +13,7 @@ namespace Flashcards.DataAccess
         Phrase GetPhraseById(int id);
         IEnumerable<Phrase> GetPhrases();
         List<string> GetGroups();
-        int SavePhrase(Phrase phrase);
+        void SavePhrase(Phrase phrase);
         string GetStreamFromCSV(string filePath);
     }
 }

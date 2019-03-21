@@ -47,18 +47,17 @@ namespace Flashcards.DataAccess
                 return groups.ToList();
             }
         }
-        public int SavePhrase(Phrase phrase)
+        public void SavePhrase(Phrase phrase)
         {
             lock (locker)
             {
                 if (phrase.Id != 0)
                 {
                     database.Update(phrase);
-                    return phrase.Id;
                 }
                 else
                 {
-                    return database.Insert(phrase);
+                    database.Insert(phrase);
                 }
             }
         }
