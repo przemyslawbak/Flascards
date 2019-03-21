@@ -6,31 +6,42 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Flascards.UnitTests.ViewModels
 {
     public class MainPageViewModelTests
     {
-        private Mock<IMainDataProvider> _dataProviderMock;
+        List<Phrase> phrases;
         private MainPageViewModel _viewModel;
         private Mock<IPhraseEditViewModel> _phraseEditViewModelMock;
+        private Mock<IMainDataProvider> _mainDataProviderMock;
         public MainPageViewModelTests()
         {
-            _dataProviderMock = new Mock<IMainDataProvider>();
+            //instances
+            phrases = new List<Phrase>
+            {
+                new Phrase { Category = "newCat1", Definition = "newDef1", Group = "newGr1", Learned = false, Name = "newName1", Priority = "newPrio1", Id = 7 }
+            };
             _phraseEditViewModelMock = new Mock<IPhraseEditViewModel>();
-            var mainDataProviderMock = new Mock<IMainDataProvider>();
-            mainDataProviderMock.Setup(dp => dp.GetGroups())
-              .Returns(new List<string>
-              {
+            _mainDataProviderMock = new Mock<IMainDataProvider>();
+
+            //setup
+            _mainDataProviderMock.Setup(dp => dp.GetGroups())
+                .Returns(new List<string>
+                {
           "Group #1",
           "Group #2",
           "Group #3"
              });
-            mainDataProviderMock.Setup(dp => dp.GetStreamFromCSV("data.csv"))
-              .Returns("Name|Definition|Category|Group|Priority\nname1 |def1|cat1|gr1|prio1\nname2 |def2|cat2|gr2|prio2");
+            _mainDataProviderMock.Setup(dp => dp.PickUpFile())
+                .ReturnsAsync("data.csv");
+            _mainDataProviderMock.Setup(dp => dp.GetStreamFromCSV("data.csv"))
+                 .Returns("Name|Definition|Category|Group|Priority\nname1 |def1|cat1|gr1|prio1\nname2 |def2|cat2|gr2|prio2");
 
-            _viewModel = new MainPageViewModel(mainDataProviderMock.Object, CreatePhraseEditViewModel);
+            //VM instance
+            _viewModel = new MainPageViewModel(_mainDataProviderMock.Object, CreatePhraseEditViewModel);
         }
 
         private IPhraseEditViewModel CreatePhraseEditViewModel() //method for creating PhraseEditVM
@@ -59,9 +70,9 @@ namespace Flascards.UnitTests.ViewModels
         {
             _viewModel.LoadGroups();
             Assert.Equal(3, _viewModel.Groups.Count);
-            var friend = _viewModel.Groups[0];
-            Assert.NotNull(friend);
-            Assert.Equal("Group #1", friend);
+            var phrase = _viewModel.Groups[0];
+            Assert.NotNull(phrase);
+            Assert.Equal("Group #1", phrase);
         }
         [Fact]
         public void ShouldOpenNewPhraseAndSetPhraseEditPropertyTrue()
@@ -72,7 +83,7 @@ namespace Flascards.UnitTests.ViewModels
             _phraseEditViewModelMock.Verify(vm => vm.LoadPhrase(null), Times.Once);
         }
         [Fact]
-        public void LoadFromFileShouldConvertReturnedStringToObjectList()
+        public void LoadFromFileMethodShouldConvertReturnedCorrectStringToObjectList()
         {
             _viewModel.LoadFromFile("data.csv");
             Assert.Equal(2, _viewModel.LoadedPhrases.Count);
@@ -84,6 +95,27 @@ namespace Flascards.UnitTests.ViewModels
             Assert.Equal("gr1", phrase.Group);
             Assert.Equal("prio1", phrase.Priority);
         }
+        [Fact]
+        public void PopulateDbMethodShouldSavePhraseOfDataProvider()
+        {
+            _viewModel.PopulateDb(phrases);
+            _mainDataProviderMock.Verify(dp => dp.SavePhrase(phrases[0]), Times.Once);
+        }
 
+        [Fact]
+        public void LoadFileCommandExecuteFiresOnLoadFileExecute()
+        {
+            _viewModel.LoadFile.Execute(null);
+            Assert.Equal(2, _viewModel.LoadedPhrases.Count());
+            Assert.Equal(3, _viewModel.Groups.Count);
+            //savephrase przejście przez własność w VM, może, albo nie wiem
+            _mainDataProviderMock.Verify(dp => dp.SavePhrase(phrases[0]), Times.Once);
+        }
+
+        //TODO:
+        //zły format pliku
+        //brak pliku
+        //LoadedPhrases ładuje raz
+        //PopulateDb łąduje raz
     }
 }
