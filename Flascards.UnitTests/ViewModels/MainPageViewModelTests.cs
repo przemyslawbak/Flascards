@@ -123,7 +123,5 @@ namespace Flascards.UnitTests.ViewModels
         //TODO:
         //zły format pliku
         //brak pliku
-        //LoadedPhrases ładuje raz
-        //PopulateDb łąduje raz
     }
 }
