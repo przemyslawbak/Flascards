@@ -102,7 +102,6 @@ namespace Flascards.UnitTests.ViewModels
             _viewModel.PopulateDb(_viewModel.LoadedPhrases); //populates Db with phase list - 1 item
             _mainDataProviderMock.Verify(dp => dp.SavePhrase(It.IsAny<Phrase>()), Times.Once); //counts saved phrases
         }
-
         [Fact]
         public void LoadFile_ShouldBeExecuted_CallsOnLoadFileExecute()
         {
@@ -115,20 +114,26 @@ namespace Flascards.UnitTests.ViewModels
         public void PopulateDb_ShouldSeedDbOnce_True()
         {
             _viewModel.LoadedPhrases = phrases; //populates collection
-            _viewModel.PopulateDb(phrases); //seeds Db twice
-            _viewModel.PopulateDb(phrases);
+            _viewModel.PopulateDb(_viewModel.LoadedPhrases); //seeds Db twice
+            _viewModel.PopulateDb(_viewModel.LoadedPhrases);
             _mainDataProviderMock.Verify(dp => dp.SavePhrase(It.IsAny<Phrase>()), Times.Once); //should seed only once
         }
-
         [Fact]
         public void LoadFromFile_WithFilePathParameterIsNull_ReturnsEmptyCollection()
         {
-            _viewModel.LoadFromFile(""); //loads phrases from the file
+            _viewModel.LoadFromFile(""); //loads phrases from the file with empty path string
             Assert.Empty(_viewModel.LoadedPhrases);
         }
+        [Fact]
+        public void PopulateDb_GetsEmptyCollectionParameter_DoesNothing()
+        {
+            _viewModel.LoadedPhrases.Clear(); //collection is empty
+            _viewModel.PopulateDb(_viewModel.LoadedPhrases); //PopulateDb with empty collection
+            _mainDataProviderMock.Verify(dp => dp.SavePhrase(It.IsAny<Phrase>()), Times.Never); //with empty collection SavePhrase runs never
+        }
+
 
         //TODO:
         //zły format pliku
-        //PopulateDb dla pustej kolekcji nic nie robi
     }
 }
