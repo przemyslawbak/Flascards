@@ -82,8 +82,7 @@ namespace Flashcards.ViewModels
             {
                 string stream = "";
                 LoadedPhrases.Clear();
-                stream = _dataProvider.GetStreamFromCSV(filePath); //if filePath == null, GetStreamFromCSV returns null;
-
+                stream = _dataProvider.GetStreamFromCSV(filePath);
                 Dictionary<string, int> myPhraseMap = new Dictionary<string, int>(); //exception for wrong format
                 var sr = new StringReader(stream);
                 using (var csv = new CsvReader(sr, true, '|'))
