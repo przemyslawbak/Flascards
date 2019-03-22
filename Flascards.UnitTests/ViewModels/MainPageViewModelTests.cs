@@ -98,8 +98,9 @@ namespace Flascards.UnitTests.ViewModels
         [Fact]
         public void PopulateDbMethod_ShouldSeedDbWithPhrases_CallsDpSavePhrase()
         {
-            _viewModel.PopulateDb(phrases); //populates Db with phase list - 1 item
-            _mainDataProviderMock.Verify(dp => dp.SavePhrase(phrases[0]), Times.Once); //counts saved phrases
+            _viewModel.LoadedPhrases = phrases; //populates collection
+            _viewModel.PopulateDb(_viewModel.LoadedPhrases); //populates Db with phase list - 1 item
+            _mainDataProviderMock.Verify(dp => dp.SavePhrase(It.IsAny<Phrase>()), Times.Once); //counts saved phrases
         }
 
         [Fact]
@@ -109,6 +110,14 @@ namespace Flascards.UnitTests.ViewModels
             Assert.Equal(2, _viewModel.LoadedPhrases.Count()); //counts loaded phrases from the file
             Assert.Equal(3, _viewModel.Groups.Count); //counts loaded groups
             _mainDataProviderMock.Verify(dp => dp.SavePhrase(It.IsAny<Phrase>()), Times.AtLeast(2)); //counts saved phrases
+        }
+        [Fact]
+        public void PopulateDbMethod_ShouldSeedDbOnce_True()
+        {
+            _viewModel.LoadedPhrases = phrases; //populates collection
+            _viewModel.PopulateDb(phrases); //seeds Db twice
+            _viewModel.PopulateDb(phrases);
+            _mainDataProviderMock.Verify(dp => dp.SavePhrase(It.IsAny<Phrase>()), Times.Once); //should seed only once
         }
 
         //TODO:
