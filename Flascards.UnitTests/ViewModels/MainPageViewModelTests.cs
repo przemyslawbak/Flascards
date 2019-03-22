@@ -36,9 +36,11 @@ namespace Flascards.UnitTests.ViewModels
           "Group #3"
              });
             _mainDataProviderMock.Setup(dp => dp.PickUpFile())
-                .ReturnsAsync("data.csv");
-            _mainDataProviderMock.Setup(dp => dp.GetStreamFromCSV("data.csv"))
+                .ReturnsAsync("goodData.csv");
+            _mainDataProviderMock.Setup(dp => dp.GetStreamFromCSV("goodData.csv"))
                  .Returns("Name|Definition|Category|Group|Priority\nname1 |def1|cat1|gr1|prio1\nname2 |def2|cat2|gr2|prio2");
+            _mainDataProviderMock.Setup(dp => dp.GetStreamFromCSV("emptyData.csv"))
+                .Returns("");
 
             //VM instance
             _viewModel = new MainPageViewModel(_mainDataProviderMock.Object, CreatePhraseEditViewModel);
@@ -85,7 +87,7 @@ namespace Flascards.UnitTests.ViewModels
         [Fact]
         public void LoadFromFile_ShouldConvertReturnedCorrectFormatString_ReturnsPhraseList()
         {
-            _viewModel.LoadFromFile("data.csv"); //loads phrases from the file
+            _viewModel.LoadFromFile("goodData.csv"); //loads phrases from the file
             Assert.Equal(2, _viewModel.LoadedPhrases.Count); //counts loaded phrases from the file
             var phrase = _viewModel.LoadedPhrases[0];
             Assert.NotNull(phrase); //checks if phrase is not null, below compares props
@@ -121,8 +123,12 @@ namespace Flascards.UnitTests.ViewModels
         [Fact]
         public void LoadFromFile_WithFilePathParameterIsNull_ReturnsEmptyCollection()
         {
+            List<Phrase> expected = new List<Phrase>();
+            expected.Clear(); //expectations
+            List<Phrase> method = _viewModel.LoadFromFile("");//loads phrases from the file with empty path parameter
             _viewModel.LoadFromFile(""); //loads phrases from the file with empty path string
-            Assert.Empty(_viewModel.LoadedPhrases);
+            Assert.Empty(_viewModel.LoadedPhrases); // check if LoadedPhrases is empty
+            Assert.Equal(expected, method); //compare expectations with method returns
         }
         [Fact]
         public void PopulateDb_GetsEmptyCollectionParameter_DoesNothing()
@@ -131,9 +137,18 @@ namespace Flascards.UnitTests.ViewModels
             _viewModel.PopulateDb(_viewModel.LoadedPhrases); //PopulateDb with empty collection
             _mainDataProviderMock.Verify(dp => dp.SavePhrase(It.IsAny<Phrase>()), Times.Never); //with empty collection SavePhrase runs never
         }
-
+        [Fact]
+        public void LoadFromFile_GetsPathToEmptyFile_ReturnsEmptyCollection()
+        {
+            List<Phrase> expected = new List<Phrase>();
+            expected.Clear(); //expectations
+            List<Phrase> method = _viewModel.LoadFromFile("emptyData.csv"); //loads phrases from the file with empty content
+            Assert.Empty(_viewModel.LoadedPhrases); // check if LoadedPhrases is empty
+            Assert.Equal(expected, method); //compare expectations with method returns
+        }
 
         //TODO:
         //zły format pliku
+        //brak | w pliku
     }
 }
