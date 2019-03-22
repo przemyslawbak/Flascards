@@ -24,6 +24,7 @@ namespace Flashcards.ViewModels
     }
     public class MainPageViewModel : ViewModelBase, IMainPageViewModel
     {
+        List<Phrase> oldPhrases = new List<Phrase>(); //verification for PopulateDb method;
         private Func<IPhraseEditViewModel> _phraseEditVmCreator;
         private IMainDataProvider _dataProvider;
         public string FileLocation { get; set; }
@@ -113,9 +114,13 @@ namespace Flashcards.ViewModels
         }
         public void PopulateDb(List<Phrase> phrases)
         {
-            foreach (var item in phrases)
+            if (oldPhrases != phrases) //populates only if collection is new
             {
-                _dataProvider.SavePhrase(item);
+                foreach (var item in phrases)
+                {
+                    _dataProvider.SavePhrase(item);
+                }
+                oldPhrases = phrases;
             }
         }
     }
