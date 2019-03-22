@@ -24,13 +24,13 @@ namespace Flashcards.ViewModels
     }
     public class MainPageViewModel : ViewModelBase, IMainPageViewModel
     {
-        private IPhraseEditViewModel _selectedPhraseEditViewModel;
         private Func<IPhraseEditViewModel> _phraseEditVmCreator;
         private IMainDataProvider _dataProvider;
         public string FileLocation { get; set; }
         public ObservableCollection<string> Groups { get; set; }
         public List<Phrase> LoadedPhrases { get; set; }
         public bool PhraseEdit { get; set; }
+        public IPhraseEditViewModel SelectedPhraseEditViewModel { get; set; }
         public MainPageViewModel(IMainDataProvider dataProvider,
             Func<IPhraseEditViewModel> phraseditVmCreator) //ctor
         {
@@ -116,19 +116,6 @@ namespace Flashcards.ViewModels
             foreach (var item in phrases)
             {
                 _dataProvider.SavePhrase(item);
-            }
-        }
-        public IPhraseEditViewModel SelectedPhraseEditViewModel
-        {
-            get
-            {
-                return _selectedPhraseEditViewModel;
-            }
-
-            set
-            {
-                _selectedPhraseEditViewModel = value;
-                OnPropertyChanged();
             }
         }
     }
