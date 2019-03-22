@@ -83,7 +83,14 @@ namespace Flashcards.DataAccess
                     {
                         readContents = streamReader.ReadToEnd();
                     }
-                    return readContents;
+                    if (new FileInfo(filePath).Length == 0)
+                    {
+                        return "";
+                    }
+                    else
+                    {
+                        return readContents;
+                    }
                 }
             }
             catch (Exception ex)
