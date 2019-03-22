@@ -58,37 +58,37 @@ namespace Flascards.UnitTests.ViewModels
         }
 
         [Fact]
-        public void ShouldLoadGroupsOnlyOnce()
+        public void LoadGroupsMethod_ShouldLoadOnce_True()
         {
-            _viewModel.LoadGroups();
+            _viewModel.LoadGroups(); //loads groups twice
             _viewModel.LoadGroups();
 
-            Assert.Equal(3, _viewModel.Groups.Count);
+            Assert.Equal(3, _viewModel.Groups.Count); //counts how many groups are loaded
         }
         [Fact]
-        public void ShouldLoadGroups()
+        public void LoadGroupsMethod_ShouldLoad_True()
         {
-            _viewModel.LoadGroups();
-            Assert.Equal(3, _viewModel.Groups.Count);
+            _viewModel.LoadGroups(); //loads collection of groups (from setup)
+            Assert.Equal(3, _viewModel.Groups.Count); //counts groups
             var phrase = _viewModel.Groups[0];
             Assert.NotNull(phrase);
-            Assert.Equal("Group #1", phrase);
+            Assert.Equal("Group #1", phrase); //compares group name
         }
         [Fact]
-        public void ShouldOpenNewPhraseAndSetPhraseEditPropertyTrue()
+        public void AddPhraseCommand_ShouldBeExecuted_True()
         {
-            _viewModel.PhraseEdit = false;
-            _viewModel.AddPhraseCommand.Execute(null);
-            Assert.True(_viewModel.PhraseEdit);
-            _phraseEditViewModelMock.Verify(vm => vm.LoadPhrase(null), Times.Once);
+            _viewModel.PhraseEdit = false; //set up PhraseEdit prop
+            _viewModel.AddPhraseCommand.Execute(null); // executes command
+            Assert.True(_viewModel.PhraseEdit); //verifies PhraseEdit prop
+            _phraseEditViewModelMock.Verify(vm => vm.LoadPhrase(null), Times.Once); //counts loaded phrases
         }
         [Fact]
-        public void LoadFromFileMethodShouldConvertReturnedCorrectStringToObjectList()
+        public void LoadFromFileMethod_ShouldConvertReturnedCorrectFormatString_ReturnsPhraseList()
         {
-            _viewModel.LoadFromFile("data.csv");
-            Assert.Equal(2, _viewModel.LoadedPhrases.Count);
+            _viewModel.LoadFromFile("data.csv"); //loads phrases from the file
+            Assert.Equal(2, _viewModel.LoadedPhrases.Count); //counts loaded phrases from the file
             var phrase = _viewModel.LoadedPhrases[0];
-            Assert.NotNull(phrase);
+            Assert.NotNull(phrase); //checks if phrase is not null, below compares props
             Assert.Equal("name1", phrase.Name);
             Assert.Equal("def1", phrase.Definition);
             Assert.Equal("cat1", phrase.Category);
@@ -96,20 +96,19 @@ namespace Flascards.UnitTests.ViewModels
             Assert.Equal("prio1", phrase.Priority);
         }
         [Fact]
-        public void PopulateDbMethodShouldSavePhraseOfDataProvider()
+        public void PopulateDbMethod_ShouldSeedDbWithPhrases_CallsDpSavePhrase()
         {
-            _viewModel.PopulateDb(phrases);
-            _mainDataProviderMock.Verify(dp => dp.SavePhrase(phrases[0]), Times.Once);
+            _viewModel.PopulateDb(phrases); //populates Db with phase list - 1 item
+            _mainDataProviderMock.Verify(dp => dp.SavePhrase(phrases[0]), Times.Once); //counts saved phrases
         }
 
         [Fact]
-        public void LoadFileCommandExecuteFiresOnLoadFileExecute()
+        public void LoadFileCommand_ShouldBeExecuted_CallsOnLoadFileExecute()
         {
-            _viewModel.LoadFile.Execute(null);
-            Assert.Equal(2, _viewModel.LoadedPhrases.Count());
-            Assert.Equal(3, _viewModel.Groups.Count);
-            //savephrase przejście przez własność w VM, może, albo nie wiem
-            _mainDataProviderMock.Verify(dp => dp.SavePhrase(phrases[0]), Times.Once);
+            _viewModel.LoadFile.Execute(null); //execute command
+            Assert.Equal(2, _viewModel.LoadedPhrases.Count()); //counts loaded phrases from the file
+            Assert.Equal(3, _viewModel.Groups.Count); //counts loaded groups
+            _mainDataProviderMock.Verify(dp => dp.SavePhrase(It.IsAny<Phrase>()), Times.AtLeast(2)); //counts saved phrases
         }
 
         //TODO:
