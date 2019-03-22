@@ -78,39 +78,42 @@ namespace Flashcards.ViewModels
         }
         public List<Phrase> LoadFromFile(string filePath)
         {
-            string stream = "";
-            LoadedPhrases.Clear();
-            stream = _dataProvider.GetStreamFromCSV(filePath); //if filePath == null, GetStreamFromCSV returns null;
-
-            Dictionary<string, int> myPhraseMap = new Dictionary<string, int>(); //exception for wrong format
-            var sr = new StringReader(stream);
-            using (var csv = new CsvReader(sr, true, '|'))
+            if (filePath != "")
             {
-                int fieldCount = csv.FieldCount;
-                string[] headers = csv.GetFieldHeaders();
-                for (int i = 0; i < fieldCount; i++)
+                string stream = "";
+                LoadedPhrases.Clear();
+                stream = _dataProvider.GetStreamFromCSV(filePath); //if filePath == null, GetStreamFromCSV returns null;
+
+                Dictionary<string, int> myPhraseMap = new Dictionary<string, int>(); //exception for wrong format
+                var sr = new StringReader(stream);
+                using (var csv = new CsvReader(sr, true, '|'))
                 {
-                    myPhraseMap[headers[i]] = i;
-                }
-                while (csv.ReadNextRecord())
-                {
-                    Phrase phrase = new Phrase
+                    int fieldCount = csv.FieldCount;
+                    string[] headers = csv.GetFieldHeaders();
+                    for (int i = 0; i < fieldCount; i++)
                     {
-                        Name = csv[myPhraseMap["Name"]],
-                        Definition = csv[myPhraseMap["Definition"]],
-                        Category = csv[myPhraseMap["Category"]],
-                        Group = csv[myPhraseMap["Group"]],
-                        Priority = csv[myPhraseMap["Priority"]],
-                        Learned = false
-                    };
-                    LoadedPhrases.Add(phrase);
+                        myPhraseMap[headers[i]] = i;
+                    }
+                    while (csv.ReadNextRecord())
+                    {
+                        Phrase phrase = new Phrase
+                        {
+                            Name = csv[myPhraseMap["Name"]],
+                            Definition = csv[myPhraseMap["Definition"]],
+                            Category = csv[myPhraseMap["Category"]],
+                            Group = csv[myPhraseMap["Group"]],
+                            Priority = csv[myPhraseMap["Priority"]],
+                            Learned = false
+                        };
+                        LoadedPhrases.Add(phrase);
+                    }
                 }
-                if (LoadedPhrases == null)
-                {
-                    // info that file is empty or format is wrong (maybe)
-                }
-                return LoadedPhrases;
             }
+            else
+            {
+                LoadedPhrases.Clear();
+            }
+            return LoadedPhrases;
         }
         public void PopulateDb(List<Phrase> phrases)
         {
