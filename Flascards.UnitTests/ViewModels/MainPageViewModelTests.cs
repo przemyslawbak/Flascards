@@ -108,7 +108,7 @@ namespace Flascards.UnitTests.ViewModels
         [Fact]
         public void LoadFile_ShouldBeExecuted_CallsOnLoadFileExecute()
         {
-            _viewModel.LoadFile.Execute(null); //execute command
+            _viewModel.LoadFileCommand.Execute(null); //execute command
             Assert.Equal(2, _viewModel.LoadedPhrases.Count()); //counts loaded phrases from the file
             Assert.Equal(3, _viewModel.Groups.Count); //counts loaded groups
             _mainDataProviderMock.Verify(dp => dp.SavePhrase(It.IsAny<Phrase>()), Times.AtLeast(2)); //counts saved phrases

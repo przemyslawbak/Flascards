@@ -30,7 +30,10 @@
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout>
-                                    <Label Text="{Binding}"/>
+                                    <Button Text="{Binding}"
+                                            Command="{Binding OpenPhraseGroupViewCommand}"
+                                            CommandParameter="{Binding}">
+                                    </Button>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
@@ -42,7 +45,7 @@
                     Text="Load from file"
                     HorizontalOptions="Center"
                     Margin="5,0,0,0"
-                    Command="{Binding LoadFile}">
+                    Command="{Binding LoadFileCommand}">
             </Button>
             <Button Grid.Row="1" Grid.Column="1"
                     Text="Add single phrase"
