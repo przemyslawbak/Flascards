@@ -42,11 +42,11 @@ namespace Flashcards.ViewModels
             LoadedPhrases = new List<Phrase>();
             //commands tests
             AddPhraseCommand = new DelegateCommand(OnNewPhraseExecute);
-            LoadFile = new DelegateCommand(OnLoadFileExecute);
+            LoadFileCommand = new DelegateCommand(OnLoadFileExecute);
         }
 
         public ICommand AddPhraseCommand { get; private set; }
-        public ICommand LoadFile { get; private set; }
+        public ICommand LoadFileCommand { get; private set; }
 
         private void OnNewPhraseExecute(object obj)
         {
