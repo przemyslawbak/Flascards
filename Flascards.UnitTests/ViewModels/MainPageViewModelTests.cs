@@ -38,10 +38,11 @@ namespace Flascards.UnitTests.ViewModels
             _mainDataProviderMock.Setup(dp => dp.PickUpFile())
                 .ReturnsAsync("goodData.csv");
             _mainDataProviderMock.Setup(dp => dp.GetStreamFromCSV("goodData.csv"))
-                 .Returns("Name|Definition|Category|Group|Priority\nname1 |def1|cat1|gr1|prio1\nname2 |def2|cat2|gr2|prio2");
+                 .Returns("Name| Definition|Category|Group|Priority\nname1 |def1|cat1|gr1|prio1\nname2 |def2|cat2|gr2|prio2");
             _mainDataProviderMock.Setup(dp => dp.GetStreamFromCSV("emptyData.csv"))
                 .Returns("");
-
+            _mainDataProviderMock.Setup(dp => dp.GetStreamFromCSV("notValidData.csv"))
+                .Returns("% PDF - 1.5\n% âăĎÓ\n735 0 obj\n<</ Linearized 1 / L 1120326 / O 737 / E 573552 / N 4 / T 1119849 / H[491 262] >>\nendobj");
             //VM instance
             _viewModel = new MainPageViewModel(_mainDataProviderMock.Object, CreatePhraseEditViewModel);
         }
@@ -146,9 +147,14 @@ namespace Flascards.UnitTests.ViewModels
             Assert.Empty(_viewModel.LoadedPhrases); // check if LoadedPhrases is empty
             Assert.Equal(expected, method); //compare expectations with method returns
         }
-
-        //TODO:
-        //zły format pliku
-        //brak | w pliku
+        [Fact]
+        public void LoadFromFile_GetsPathToFileWithNotValidCsvData_ReturnsEmptyCollection()
+        {
+            List<Phrase> expected = new List<Phrase>();
+            expected.Clear(); //expectations
+            List<Phrase> method = _viewModel.LoadFromFile("notValidData.csv"); //loads phrases from the file with not valid data
+            Assert.Empty(_viewModel.LoadedPhrases); // check if LoadedPhrases is empty
+            Assert.Equal(expected, method); //compare expectations with method returns
+        }
     }
 }
