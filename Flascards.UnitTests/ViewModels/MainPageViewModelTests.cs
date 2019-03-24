@@ -156,5 +156,13 @@ namespace Flascards.UnitTests.ViewModels
             Assert.Empty(_viewModel.LoadedPhrases); // check if LoadedPhrases is empty
             Assert.Equal(expected, method); //compare expectations with method returns
         }
+
+        //TODO:
+        //spr czy otwiera się okno grupy, z parametrem nazwy
+        //zaprojektowanie widoku edycji frazy
+        //widok edycji frazy
+        //zapis nowej/edytowanej frazy w bazie (nowy vm, będzie też korzystać metoda edycji)
+        //grupa frazy z listy
+        //powrót do głównego, jeśli fraza nowa,
     }
 }
