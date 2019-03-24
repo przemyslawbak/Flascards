@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -76,6 +77,30 @@ namespace Flashcards.ViewModels
                 Groups.Add(group);
             }
         }
+        private bool CsvValidator (string fileContent)
+        {
+           var fileLines = fileContent.Split(
+           new string[] { "\r\n", "\n" }, StringSplitOptions.None);
+
+            if (fileLines.Length < 2)
+            {
+                return false; //if less than 2 rows, there is no content
+            }
+            string header = fileLines[0].Replace(" ", String.Empty).ToLower();
+            if (header != "name|definition|category|group|priority")
+            {
+                return false; //if header is wrong
+            }
+            foreach (var row in fileLines.Skip(1))
+            {
+                var cells = row.Split('|');
+                if (cells.Length != 5)
+                {
+                    return false; //if in any of rows length of cells is not 4
+                }
+            }
+            return true;
+        }
         public List<Phrase> LoadFromFile(string filePath)
         {
             if (filePath != "")
@@ -83,29 +108,37 @@ namespace Flashcards.ViewModels
                 string stream = "";
                 LoadedPhrases.Clear();
                 stream = _dataProvider.GetStreamFromCSV(filePath);
-                Dictionary<string, int> myPhraseMap = new Dictionary<string, int>(); //exception for wrong format
-                var sr = new StringReader(stream);
-                using (var csv = new CsvReader(sr, true, '|'))
+                bool validation = CsvValidator(stream);
+                if (validation)
                 {
-                    int fieldCount = csv.FieldCount;
-                    string[] headers = csv.GetFieldHeaders();
-                    for (int i = 0; i < fieldCount; i++)
+                    Dictionary<string, int> myPhraseMap = new Dictionary<string, int>();
+                    var sr = new StringReader(stream);
+                    using (var csv = new CsvReader(sr, true, '|'))
                     {
-                        myPhraseMap[headers[i]] = i;
-                    }
-                    while (csv.ReadNextRecord())
-                    {
-                        Phrase phrase = new Phrase
+                        int fieldCount = csv.FieldCount;
+                        string[] headers = csv.GetFieldHeaders();
+                        for (int i = 0; i < fieldCount; i++)
                         {
-                            Name = csv[myPhraseMap["Name"]],
-                            Definition = csv[myPhraseMap["Definition"]],
-                            Category = csv[myPhraseMap["Category"]],
-                            Group = csv[myPhraseMap["Group"]],
-                            Priority = csv[myPhraseMap["Priority"]],
-                            Learned = false
-                        };
-                        LoadedPhrases.Add(phrase);
+                            myPhraseMap[headers[i]] = i;
+                        }
+                        while (csv.ReadNextRecord())
+                        {
+                            Phrase phrase = new Phrase
+                            {
+                                Name = csv[myPhraseMap["Name"]],
+                                Definition = csv[myPhraseMap["Definition"]],
+                                Category = csv[myPhraseMap["Category"]],
+                                Group = csv[myPhraseMap["Group"]],
+                                Priority = csv[myPhraseMap["Priority"]],
+                                Learned = false
+                            };
+                            LoadedPhrases.Add(phrase);
+                        }
                     }
+                }
+                else
+                {
+                    LoadedPhrases.Clear();
                 }
             }
             else
