@@ -29,11 +29,11 @@ namespace Flashcards.ViewModels
         {
             get
             {
-                return _phrase; //zwraca fumfla z wrappera
+                return _phrase;
             }
             set
             {
-                _phrase = value; //ustawia fumwla przez wrappera
+                _phrase = value;
                 OnPropertyChanged();
             }
         }
