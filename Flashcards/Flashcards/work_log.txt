@@ -12,3 +12,5 @@ trouble shooting Autofac exception - resolved by itself after xamarin solution a
 21.03 - Finally understood Mocking(!), Added new Tests, TODO list, refactorized layers for PickUpFile mocking
 22.03 - Added several new tests of MainPageViewModel, refactorised VM to pass the tests
 24.03 - Added test and method validating the CSV file format
+25.03 - 26.03 - Figuring out how to test viewmodel navigation and prism events, studying "Enterprise Application
+Patterns using Xamarin.Forms eBook" by David Britch
