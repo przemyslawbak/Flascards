@@ -1,11 +1,13 @@
 ﻿using Autofac;
 using Flashcards.Command;
 using Flashcards.DataProvider;
+using Flashcards.Events;
 using Flashcards.Models;
 using Flashcards.Startup;
 using Flashcards.Views;
 using LumenWorks.Framework.IO.Csv;
 using Plugin.FilePicker;
+using Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,41 +27,62 @@ namespace Flashcards.ViewModels
     }
     public class MainPageViewModel : ViewModelBase, IMainPageViewModel
     {
+        private IGroupPageViewModel _selectedGroupPageViewModel;
+        private IEventAggregator _eventAggregator; //Prism
         List<Phrase> oldPhrases = new List<Phrase>(); //verification for PopulateDb method;
         private Func<IPhraseEditViewModel> _phraseEditVmCreator;
+        private Func<IGroupPageViewModel> _groupPageVmCreator;
         private IMainDataProvider _dataProvider;
         public string FileLocation { get; set; }
         public ObservableCollection<string> Groups { get; set; }
         public List<Phrase> LoadedPhrases { get; set; }
         public bool PhraseEdit { get; set; }
+        public bool OpenGroup { get; set; }
         public IPhraseEditViewModel SelectedPhraseEditViewModel { get; set; }
         public MainPageViewModel(IMainDataProvider dataProvider,
-            Func<IPhraseEditViewModel> phraseditVmCreator) //ctor
+            Func<IPhraseEditViewModel> phraseditVmCreator,
+            Func<IGroupPageViewModel> groupPageVmCreator,
+            IEventAggregator eventAggregator) //ctor
         {
+            eventAggregator.GetEvent<OpenGroupPageEvent>().Subscribe(OnOpenGroupExecute); //
+            _eventAggregator = eventAggregator;
             _dataProvider = dataProvider;
             _phraseEditVmCreator = phraseditVmCreator;
+            _groupPageVmCreator = groupPageVmCreator;
             Groups = new ObservableCollection<string>();
             LoadedPhrases = new List<Phrase>();
             //commands tests
             AddPhraseCommand = new DelegateCommand(OnNewPhraseExecute);
             LoadFileCommand = new DelegateCommand(OnLoadFileExecute);
+            OpenGroupCommand = new DelegateCommand(OnOpenGroupExecute);
+
         }
 
         public ICommand AddPhraseCommand { get; private set; }
         public ICommand LoadFileCommand { get; private set; }
+        public ICommand OpenGroupCommand { get; private set; }
 
+        public IGroupPageViewModel SelectedGroupPageViewModel
+        {
+            get
+            {
+                return _selectedGroupPageViewModel;
+            }
+            set
+            {
+                _selectedGroupPageViewModel = value;
+                OnPropertyChanged();
+            }
+        }
+        private void OnOpenGroupExecute(object obj)
+        {
+            string groupName = (string)obj;
+            SelectedGroupPageViewModel = CreateGroupPageViewModel(groupName);
+            Application.Current.MainPage.Navigation.PushAsync(new GroupPage(groupName, _eventAggregator));
+        }
         private void OnNewPhraseExecute(object obj)
         {
             SelectedPhraseEditViewModel = CreateAndLoadPhraseEditViewModel(null);
-        }
-
-        private IPhraseEditViewModel CreateAndLoadPhraseEditViewModel(int? phraseId)
-        {
-            //Application.Current.MainPage.Navigation.PushAsync(new PhraseEditPage());
-            var phraseEditVm = _phraseEditVmCreator();
-            PhraseEdit = true;
-            phraseEditVm.LoadPhrase(phraseId);
-            return phraseEditVm;
         }
         private async void OnLoadFileExecute(object obj)
         {
@@ -68,6 +91,20 @@ namespace Flashcards.ViewModels
             LoadedPhrases = LoadFromFile(FileLocation);
             PopulateDb(LoadedPhrases);
             LoadGroups();
+        }
+        private IGroupPageViewModel CreateGroupPageViewModel(string groupName)
+        {
+            var groupPageVm = _groupPageVmCreator();
+            groupPageVm.LoadGroupName(groupName);
+            return groupPageVm;
+        }
+        private IPhraseEditViewModel CreateAndLoadPhraseEditViewModel(int? phraseId)
+        {
+            var phraseEditVm = _phraseEditVmCreator();
+            PhraseEdit = true;
+            phraseEditVm.LoadPhrase(phraseId);
+            //Application.Current.MainPage.Navigation.PushAsync(new PhraseEditPage());
+            return phraseEditVm;
         }
         public void LoadGroups() //loads group list from the DB
         {

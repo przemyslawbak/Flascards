@@ -1,7 +1,9 @@
 ﻿using Flashcards.DataProvider;
+using Flashcards.Events;
 using Flashcards.Models;
 using Flashcards.ViewModels;
 using Moq;
+using Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +17,18 @@ namespace Flascards.UnitTests.ViewModels
     {
         List<Phrase> phrases;
         private MainPageViewModel _viewModel;
+        private OpenGroupPageEvent _openGroupPageEvent;
+        private Mock<IEventAggregator> _eventAggregatorMock;
         private Mock<IPhraseEditViewModel> _phraseEditViewModelMock;
+        private Mock<IGroupPageViewModel> _groupPageViewModelMock;
         private Mock<IMainDataProvider> _mainDataProviderMock;
         public MainPageViewModelTests()
         {
             //instances
+            _eventAggregatorMock = new Mock<IEventAggregator>();
+            _eventAggregatorMock.Setup(ea => ea.GetEvent<OpenGroupPageEvent>())
+              .Returns(_openGroupPageEvent);
+            _openGroupPageEvent = new OpenGroupPageEvent();
             phrases = new List<Phrase>
             {
                 new Phrase { Category = "newCat1", Definition = "newDef1", Group = "newGr1", Learned = false, Name = "newName1", Priority = "newPrio1", Id = 7 }
@@ -44,9 +53,13 @@ namespace Flascards.UnitTests.ViewModels
             _mainDataProviderMock.Setup(dp => dp.GetStreamFromCSV("notValidData.csv"))
                 .Returns("% PDF - 1.5\n% âăĎÓ\n735 0 obj\n<</ Linearized 1 / L 1120326 / O 737 / E 573552 / N 4 / T 1119849 / H[491 262] >>\nendobj");
             //VM instance
-            _viewModel = new MainPageViewModel(_mainDataProviderMock.Object, CreatePhraseEditViewModel);
+            _viewModel = new MainPageViewModel(_mainDataProviderMock.Object, CreatePhraseEditViewModel, CreateGroupPageViewModel , _eventAggregatorMock.Object);
         }
-
+        private IGroupPageViewModel CreateGroupPageViewModel()
+        {
+            var groupPageViewModelMock = new Mock<IGroupPageViewModel>();
+            return groupPageViewModelMock.Object;
+        }
         private IPhraseEditViewModel CreatePhraseEditViewModel() //method for creating PhraseEditVM
         {
             var phraseEditViewModelMock = new Mock<IPhraseEditViewModel>();
@@ -156,6 +169,7 @@ namespace Flascards.UnitTests.ViewModels
             Assert.Empty(_viewModel.LoadedPhrases); // check if LoadedPhrases is empty
             Assert.Equal(expected, method); //compare expectations with method returns
         }
+        //test: _viewModel.OpenFriendEditViewCommand.Execute(null); z FriendStorage
 
         //TODO:
         //spr czy otwiera się okno grupy, z parametrem nazwy

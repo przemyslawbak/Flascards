@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Flashcards"
+             x:Name="MyMainPage"
              x:Class="Flashcards.MainPage" Title="Flashcards">
     <ContentPage.Content>
         <Grid>
@@ -31,8 +32,9 @@
                             <ViewCell.View>
                                 <StackLayout>
                                     <Button Text="{Binding}"
-                                            Command="{Binding OpenPhraseGroupViewCommand}"
-                                            CommandParameter="{Binding}">
+                                            Command="{Binding Path=BindingContext.OpenGroupCommand, Source={x:Reference Name=MyMainPage}}"
+                                            CommandParameter="{Binding}"
+                                            Margin="25,0,25,0">
                                     </Button>
                                 </StackLayout>
                             </ViewCell.View>

@@ -2,6 +2,7 @@
 using Flashcards.DataAccess;
 using Flashcards.DataProvider;
 using Flashcards.ViewModels;
+using Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +14,8 @@ namespace Flashcards.Startup
         public IContainer BootStrap()
         {
             var builder = new ContainerBuilder();
+            builder.RegisterType<EventAggregator>()
+              .As<IEventAggregator>().SingleInstance();
             builder.RegisterType<DataRepository>()
                 .As<IDataRepository>();
             builder.RegisterType<MainPage>()
@@ -21,6 +24,8 @@ namespace Flashcards.Startup
                 .AsSelf();
             builder.RegisterType<PhraseEditViewModel>()
                 .As<IPhraseEditViewModel>();
+            builder.RegisterType<GroupPageViewModel>()
+                .As<IGroupPageViewModel>();
             builder.RegisterType<MainDataProvider>()
                 .As<IMainDataProvider>();
             builder.RegisterType<PhraseDataProvider>()
